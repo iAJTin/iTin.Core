@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33829.357
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "iTin.Core", "src\iTin.Core.csproj", "{85D05190-B037-43AC-BA33-5A8002060590}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "iTin.Logging", "..\..\iTin.Logging\src\iTin.Logging.csproj", "{AED4777B-E0D2-4661-B41B-CF3EDADF5D51}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lib", "lib", "{91AD361C-3066-4622-8542-573D8DB564B6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{85D05190-B037-43AC-BA33-5A8002060590}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{85D05190-B037-43AC-BA33-5A8002060590}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{85D05190-B037-43AC-BA33-5A8002060590}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{85D05190-B037-43AC-BA33-5A8002060590}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AED4777B-E0D2-4661-B41B-CF3EDADF5D51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AED4777B-E0D2-4661-B41B-CF3EDADF5D51}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AED4777B-E0D2-4661-B41B-CF3EDADF5D51}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AED4777B-E0D2-4661-B41B-CF3EDADF5D51}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{AED4777B-E0D2-4661-B41B-CF3EDADF5D51} = {91AD361C-3066-4622-8542-573D8DB564B6}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {98742FC0-CFC6-4E9E-95F2-F5A395B71216}
+	EndGlobalSection
+EndGlobal

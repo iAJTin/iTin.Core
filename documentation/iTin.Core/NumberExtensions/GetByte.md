@@ -1,0 +1,261 @@
+# NumberExtensions.GetByte method (1 of 12)
+
+Returns the specified byte.
+
+```csharp
+public static byte GetByte(this int value, byte onebyte)
+```
+
+| parameter | description |
+| --- | --- |
+| value | Reference value. |
+| onebyte | Byte to retrieve. |
+
+## See Also
+
+* class [NumberExtensions](../NumberExtensions.md)
+* namespace [iTin.Core](../../iTin.Core.md)
+
+---
+
+# NumberExtensions.GetByte method (2 of 12)
+
+Returns the specified byte.
+
+```csharp
+public static byte GetByte(this int value, Bytes onebyte)
+```
+
+| parameter | description |
+| --- | --- |
+| value | Reference value. |
+| onebyte | Byte to retrieve. |
+
+## See Also
+
+* enum [Bytes](../../iTin.Core.Helpers.Enumerations/Bytes.md)
+* class [NumberExtensions](../NumberExtensions.md)
+* namespace [iTin.Core](../../iTin.Core.md)
+
+---
+
+# NumberExtensions.GetByte method (3 of 12)
+
+Returns the specified byte.
+
+```csharp
+public static byte GetByte(this long value, byte onebyte)
+```
+
+| parameter | description |
+| --- | --- |
+| value | Reference value. |
+| onebyte | Byte to retrieve. |
+
+## Return Value
+
+A Byte that contains the result.
+
+## See Also
+
+* class [NumberExtensions](../NumberExtensions.md)
+* namespace [iTin.Core](../../iTin.Core.md)
+
+---
+
+# NumberExtensions.GetByte method (4 of 12)
+
+Returns the specified byte.
+
+```csharp
+public static byte GetByte(this long value, Bytes onebyte)
+```
+
+| parameter | description |
+| --- | --- |
+| value | Reference value. |
+| onebyte | Byte to retrieve. |
+
+## Return Value
+
+A Byte that contains the result.
+
+## See Also
+
+* enum [Bytes](../../iTin.Core.Helpers.Enumerations/Bytes.md)
+* class [NumberExtensions](../NumberExtensions.md)
+* namespace [iTin.Core](../../iTin.Core.md)
+
+---
+
+# NumberExtensions.GetByte method (5 of 12)
+
+Returns the specified byte.
+
+```csharp
+public static byte GetByte(this short value, byte onebyte)
+```
+
+| parameter | description |
+| --- | --- |
+| value | Reference value. |
+| onebyte | Byte to retrieve. |
+
+## See Also
+
+* class [NumberExtensions](../NumberExtensions.md)
+* namespace [iTin.Core](../../iTin.Core.md)
+
+---
+
+# NumberExtensions.GetByte method (6 of 12)
+
+Returns the specified byte.
+
+```csharp
+public static byte GetByte(this short value, Bytes onebyte)
+```
+
+| parameter | description |
+| --- | --- |
+| value | Reference value. |
+| onebyte | Byte to retrieve. |
+
+## See Also
+
+* enum [Bytes](../../iTin.Core.Helpers.Enumerations/Bytes.md)
+* class [NumberExtensions](../NumberExtensions.md)
+* namespace [iTin.Core](../../iTin.Core.md)
+
+---
+
+# NumberExtensions.GetByte method (7 of 12)
+
+Returns the specified byte.
+
+```csharp
+public static byte GetByte(this uint value, byte onebyte)
+```
+
+| parameter | description |
+| --- | --- |
+| value | Reference value. |
+| onebyte | Byte to retrieve. |
+
+## See Also
+
+* class [NumberExtensions](../NumberExtensions.md)
+* namespace [iTin.Core](../../iTin.Core.md)
+
+---
+
+# NumberExtensions.GetByte method (8 of 12)
+
+Returns the specified byte.
+
+```csharp
+public static byte GetByte(this uint value, Bytes onebyte)
+```
+
+| parameter | description |
+| --- | --- |
+| value | Reference value. |
+| onebyte | Byte to retrieve. |
+
+## See Also
+
+* enum [Bytes](../../iTin.Core.Helpers.Enumerations/Bytes.md)
+* class [NumberExtensions](../NumberExtensions.md)
+* namespace [iTin.Core](../../iTin.Core.md)
+
+---
+
+# NumberExtensions.GetByte method (9 of 12)
+
+Returns the specified byte.
+
+```csharp
+public static byte GetByte(this ulong value, byte onebyte)
+```
+
+| parameter | description |
+| --- | --- |
+| value | Reference value. |
+| onebyte | Byte to retrieve. |
+
+## Return Value
+
+A Byte that contains the result.
+
+## See Also
+
+* class [NumberExtensions](../NumberExtensions.md)
+* namespace [iTin.Core](../../iTin.Core.md)
+
+---
+
+# NumberExtensions.GetByte method (10 of 12)
+
+Returns the specified byte.
+
+```csharp
+public static byte GetByte(this ulong value, Bytes onebyte)
+```
+
+| parameter | description |
+| --- | --- |
+| value | Reference value. |
+| onebyte | Byte to retrieve. |
+
+## Return Value
+
+A Byte that contains the result.
+
+## See Also
+
+* enum [Bytes](../../iTin.Core.Helpers.Enumerations/Bytes.md)
+* class [NumberExtensions](../NumberExtensions.md)
+* namespace [iTin.Core](../../iTin.Core.md)
+
+---
+
+# NumberExtensions.GetByte method (11 of 12)
+
+Returns the specified byte.
+
+```csharp
+public static byte GetByte(this ushort value, byte onebyte)
+```
+
+| parameter | description |
+| --- | --- |
+| value | Reference value. |
+| onebyte | Byte to retrieve. |
+
+## See Also
+
+* class [NumberExtensions](../NumberExtensions.md)
+* namespace [iTin.Core](../../iTin.Core.md)
+
+---
+
+# NumberExtensions.GetByte method (12 of 12)
+
+Returns the specified byte.
+
+```csharp
+public static byte GetByte(this ushort value, Bytes onebyte)
+```
+
+| parameter | description |
+| --- | --- |
+| value | Reference value. |
+| onebyte | Byte to retrieve. |
+
+## See Also
+
+* enum [Bytes](../../iTin.Core.Helpers.Enumerations/Bytes.md)
+* class [NumberExtensions](../NumberExtensions.md)
+* namespace [iTin.Core](../../iTin.Core.md)
+
+<!-- DO NOT EDIT: generated by xmldocmd for iTin.Core.dll -->
