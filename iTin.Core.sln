@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "iTin.Logging", "..\..\iTin.
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lib", "lib", "{91AD361C-3066-4622-8542-573D8DB564B6}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NewFolder1", "NewFolder1", "{345204E7-6DE1-42E0-BA86-ADA26E1D0C9F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +31,7 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{AED4777B-E0D2-4661-B41B-CF3EDADF5D51} = {91AD361C-3066-4622-8542-573D8DB564B6}
+		{345204E7-6DE1-42E0-BA86-ADA26E1D0C9F} = {91AD361C-3066-4622-8542-573D8DB564B6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {98742FC0-CFC6-4E9E-95F2-F5A395B71216}
