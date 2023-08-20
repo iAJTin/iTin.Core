@@ -13,6 +13,8 @@ Changes in this version (v2.0.7)
 
   - Create project and first commit
 
+  - Multiple Repository is used.
+
 
 Documentation
 ==============
