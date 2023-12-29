@@ -1,4 +1,5 @@
 
+using System;
 using System.Xml;
 
 using iTin.Logging;
@@ -6,18 +7,25 @@ using iTin.Logging;
 namespace iTin.Core;
 
 /// <summary>
-/// Static class than contains extension methods for <see cref="T:System.Xml.XmlNode"/> objects.
+/// Provides extension methods for searching for a specified XML node within the current <see cref="XmlNode"/>.
 /// </summary> 
 public static class XmlNodeExtensions
 {
     /// <summary>
-    /// Finds specified node in <paramref name="nodeName"/> into current node. If not found returns <b>null</b> (<b>Nothing</b> in Visual Basic).
+    /// Finds the specified XML node with the given node name within the current <see cref="XmlNode"/>.
     /// </summary>
-    /// <param name="node">Root node.</param>
-    /// <param name="nodeName">Target node.</param>
+    /// <param name="node">The current <see cref="XmlNode"/> to search for the specified node.</param>
+    /// <param name="nodeName">The name of the XML node to find.</param>
     /// <returns>
-    /// A <see cref="T:System.Xml.XmlNode"/> founded.
+    /// The <see cref="XmlNode"/> with the specified node name if found; otherwise, <see langword="null"/>.
     /// </returns>
+    /// <remarks>
+    /// <para>
+    /// This method searches for a node with the specified name within the current <see cref="XmlNode"/> and its descendants.<br/>
+    /// If a matching node is found, it is returned; otherwise, <see langword="null"/> is returned.
+    /// </para>
+    /// </remarks>
+    /// <exception cref="ArgumentNullException">Thrown when the input <see cref="XmlNode"/> (<paramref name="node"/>) is <see langword="null"/>.</exception>
     public static XmlNode FindNode(this XmlNode node, string nodeName)
     {
         Logger.Instance.Debug("");

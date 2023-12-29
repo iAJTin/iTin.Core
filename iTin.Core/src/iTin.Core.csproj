@@ -21,4 +21,28 @@
     <ProjectReference Include="..\..\..\iTin.Logging\src\iTin.Logging.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Update="Extensions/StreamExtensions.*.cs">
+      <DependentUpon>StreamExtensions.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Extensions/StringExtensions.*.cs">
+      <DependentUpon>StringExtensions.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Extensions/UriExtensions.*.cs">
+      <DependentUpon>UriExtensions.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Helpers/StreamHelper.*.cs">
+      <DependentUpon>StreamHelper.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Helpers/SystemHelper.*.cs">
+      <DependentUpon>SystemHelper.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Helpers/TimeHelper.*.cs">
+      <DependentUpon>TimeHelper.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
 </Project>

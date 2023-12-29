@@ -5,7 +5,7 @@ using System.ComponentModel;
 namespace iTin.Core.ComponentModel;
 
 /// <summary>
-/// Specifies a description for an dictionary key.
+/// Specifies a description for a dictionary key.
 /// </summary>
 [AttributeUsage(AttributeTargets.Class)]
 public sealed class KeyDescriptionAttribute : DescriptionAttribute

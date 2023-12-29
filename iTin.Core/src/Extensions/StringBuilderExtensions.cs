@@ -1,4 +1,5 @@
 ﻿
+using System;
 using System.Text;
 
 using iTin.Core.Helpers;
@@ -7,14 +8,18 @@ using iTin.Logging;
 namespace iTin.Core;
 
 /// <summary>
-/// Static class than contains extension methods for objects of type <see cref="T:System.Text.StringBuilder" />.
-/// </summary> 
+/// Provides extension methods for working with <see cref="StringBuilder"/> objects.
+/// </summary>
 public static class StringBuilderExtensions
 {
     /// <summary>
-    /// Clears the specified string builder.
+    /// Clears the content of the specified <see cref="StringBuilder"/>.
     /// </summary>
-    /// <param name="builder">The sb.</param>
+    /// <param name="builder">The <see cref="StringBuilder"/> to clear.</param>
+    /// <remarks>
+    /// This method sets the length of the string builder to zero, effectively clearing its content.
+    /// </remarks>
+    /// <exception cref="ArgumentNullException">Thrown if the provided <paramref name="builder"/> is <see langword="null"/>.</exception>
     public static void Clear(this StringBuilder builder)
     {
         Logger.Instance.Debug("");

@@ -14,17 +14,17 @@ using iTin.Logging;
 namespace iTin.Core;
 
 /// <summary>
-/// Static class than contains extension methods for objects <see cref="T:System.Array" /> of type <see cref="T:System.Byte" />.
-/// </summary> 
+/// Contains extension methods for byte arrays.
+/// </summary>
 public static class ByteArrayExtensions
 {
     /// <summary>
-    /// Returns a <b>Quadriple Word</b> from this array of bytes starting in <paramref name="start"/>.
+    /// Retrieves a 64-bit integer (Quadruple Word) from the specified position in the byte array.
     /// </summary>
     /// <param name="data">Target data.</param>
     /// <param name="start">Start byte.</param>
     /// <returns>
-    /// A <see cref="T:System.Int64" /> containing the value.
+    /// A <see cref="long"/> containing the value.
     /// </returns>
     public static long GetQuadrupleWord(this byte[] data, byte start)
     {
@@ -46,11 +46,11 @@ public static class ByteArrayExtensions
     }
 
     /// <summary>
-    /// Returns a <see cref="T:System.IO.MemoryStream"/> from this byte array.
+    /// Converts the byte array to a <see cref="MemoryStream"/>.
     /// </summary>
-    /// <param name="data">Data to convert.</param>
+    /// <param name="data">The byte array to convert to a <see cref="MemoryStream"/>.</param>
     /// <returns>
-    /// MemoryStream.
+    /// A <see cref="MemoryStream"/> containing the data from the byte array.
     /// </returns>
     public static MemoryStream ToMemoryStream(this byte[] data)
     {
@@ -69,12 +69,12 @@ public static class ByteArrayExtensions
     }
 
     /// <summary>
-    /// Returns a printable <see cref="string"/> from this byte array.
+    /// Converts the byte array to a printable string using the specified encoding.
     /// </summary>
-    /// <param name="data">Data to convert.</param>
-    /// <param name="encoding">Encoding to use.</param>
+    /// <param name="data">The byte array to convert to a printable string.</param>
+    /// <param name="encoding">The encoding to use for the conversion. If not specified, the default encoding is used.</param>
     /// <returns>
-    /// A printable <see cref="string"/>.
+    /// A printable <see cref="string"/> representation of the byte array.
     /// </returns>
     public static string ToPrintableString(this byte[] data, Encoding encoding = null)
     {
@@ -169,12 +169,12 @@ public static class ByteArrayExtensions
 #else
 
     /// <summary>
-    /// Returns a <b>Double Word</b> from this array of bytes starting in <paramref name="start"/>.
+    /// Retrieves a 32-bit integer (Double Word) from the specified position in the byte array.
     /// </summary>
-    /// <param name="data">Target data.</param>
-    /// <param name="start">Start byte.</param>
+    /// <param name="data">The byte array from which to retrieve the Double Word.</param>
+    /// <param name="start">The starting index in the byte array.</param>
     /// <returns>
-    /// A <see cref="T:System.Int32" /> containing the value.
+    /// A <see cref="int"/> containing the Double Word value.
     /// </returns>
     public static int GetDoubleWord(this byte[] data, byte start)
     {
@@ -196,12 +196,12 @@ public static class ByteArrayExtensions
     }
 
     /// <summary>
-    /// Returns a <b>Word</b> from this array of bytes starting in <paramref name="start"/>. ( { a, b, n, n + 1, ...}, n ) => (n + 1, n)
+    /// Retrieves a 16-bit integer (Word) from the specified position in the byte array.
     /// </summary>
-    /// <param name="data">Target data.</param>
-    /// <param name="start">Start byte.</param>
+    /// <param name="data">The byte array from which to retrieve the Word.</param>
+    /// <param name="start">The starting index in the byte array.</param>
     /// <returns>
-    /// A <see cref="T:System.Int32" /> containing the value.
+    /// A <see cref="int"/> containing the Word value.
     /// </returns>
     public static int GetWord(this byte[] data, byte start)
     {
@@ -225,11 +225,11 @@ public static class ByteArrayExtensions
 #endif
 
     /// <summary>
-    /// Returns an array of bytes by exchanging bytes.
+    /// Exchanges adjacent bytes in the byte array to create a new byte array.
     /// </summary>
-    /// <param name="data">Byte array to analyze.</param>
+    /// <param name="data">The byte array whose bytes are to be exchanged.</param>
     /// <returns>
-    /// A byte <see cref="T:System.Array"/> that contains the result.
+    /// A new byte array with exchanged adjacent bytes.
     /// </returns>
     public static byte[] Swap(this byte[] data)
     {
@@ -243,9 +243,7 @@ public static class ByteArrayExtensions
 
         for (var i = 0; i < data.Length; i += 2)
         {
-            var loByte = data[i];
-            data[i] = data[i + 1];
-            data[i + 1] = loByte;
+            (data[i], data[i + 1]) = (data[i + 1], data[i]);
         }
 
         Logger.Instance.Debug($" > Output: {data.Length} byte(s)");

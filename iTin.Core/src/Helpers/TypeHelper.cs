@@ -2,17 +2,21 @@
 namespace iTin.Core.Helpers;
 
 /// <summary>
-/// Static class than contains methods for manipulating generic types.
+/// Helper class providing methods for type-related operations.
 /// </summary>
 public static class TypeHelper
 {
     /// <summary>
-    /// Converts value to specified type
+    /// Converts an object to the specified type <typeparamref name="T"/>.
     /// </summary>
-    /// <typeparam name="T"></typeparam>
-    /// <param name="value">The value.</param>
+    /// <typeparam name="T">The target type to which the object is cast.</typeparam>
+    /// <param name="value">The object to be converted.</param>
     /// <returns>
-    /// Typed value.
+    /// The object cast to the specified type <typeparamref name="T"/>.
     /// </returns>
+    /// <remarks>
+    /// This generic method attempts to cast the provided object to the specified type <typeparamref name="T"/>.
+    /// If the cast is successful, the object is returned as the target type; otherwise, an exception is thrown.
+    /// </remarks>
     public static T ToType<T>(object value) => (T)value;
 }

@@ -8,45 +8,43 @@ using iTin.Logging;
 namespace iTin.Core;
 
 /// <summary>
-/// Static class than contains extension methods for Arrays.
-/// </summary> 
+/// Provides extension methods for working with arrays.
+/// </summary>
 public static class ArrayExtensions
 {
     #region public static methods
 
     /// <summary>
-    /// Add the element to the end of the array.
+    /// Appends a single element to the end of the array.
     /// </summary>
-    /// <typeparam name="T">Element array type</typeparam>
-    /// <param name="array">Elements array</param>
-    /// <param name="item">Element to add</param>
+    /// <typeparam name="T">The type of elements in the array.</typeparam>
+    /// <param name="array">The original array.</param>
+    /// <param name="item">The element to append to the array.</param>
     /// <returns>
-    /// Returns a new array that contains the new element at the end.
+    /// A new array that contains the original elements followed by the appended element.
     /// </returns>
-    public static T[] Append<T>(this T[] array, T item) =>
-        InsertAt(array, array.Length, item);
+    public static T[] Append<T>(this T[] array, T item) => InsertAt(array, array.Length, item);
 
     /// <summary>
-    /// Add an array of elements to the end of the array.
+    /// Appends an array of elements to the end of the array.
     /// </summary>
-    /// <typeparam name="T">Element array type</typeparam>
-    /// <param name="array">Elements array</param>
-    /// <param name="items">Elements to add</param>
+    /// <typeparam name="T">The type of elements in the array.</typeparam>
+    /// <param name="array">The original array.</param>
+    /// <param name="items">The array of elements to append to the array.</param>
     /// <returns>
-    /// Returns a new array that contains the new elements array at the end.
+    /// A new array that contains the original elements followed by the appended elements.
     /// </returns>
-    public static T[] Append<T>(this T[] array, T[] items) => 
-        InsertAt(array, array.Length, items);
+    public static T[] Append<T>(this T[] array, T[] items) => InsertAt(array, array.Length, items);
 
     /// <summary>
-    /// Copy a set of elements from an array from the indicated position and length.
+    /// Copies a set of elements from the array starting from the specified position and length.
     /// </summary>
-    /// <typeparam name="T">Element array type</typeparam>
-    /// <param name="array">Elements array</param>
-    /// <param name="start">Start element index</param>
-    /// <param name="length">Length to copy</param>
+    /// <typeparam name="T">The type of elements in the array.</typeparam>
+    /// <param name="array">The original array.</param>
+    /// <param name="start">The index from which to start copying elements.</param>
+    /// <param name="length">The number of elements to copy.</param>
     /// <returns>
-    /// Returns a new array that contains a set of elements from an array from the indicated position and length.
+    /// A new array containing the copied elements from the specified position and length.
     /// </returns>
     public static T[] Copy<T>(this T[] array, int start, int length)
     {
@@ -74,14 +72,14 @@ public static class ArrayExtensions
     }
 
     /// <summary>
-    /// Insert an element in the array at the indicated position.
+    /// Inserts an element into the array at the specified position.
     /// </summary>
-    /// <typeparam name="T">Element array type</typeparam>
-    /// <param name="array">Elements array</param>
-    /// <param name="position">Position in array</param>
-    /// <param name="item">Element to insert</param>
+    /// <typeparam name="T">The type of elements in the array.</typeparam>
+    /// <param name="array">The original array.</param>
+    /// <param name="position">The index at which to insert the element.</param>
+    /// <param name="item">The element to insert into the array.</param>
     /// <returns>
-    /// Returns a new array that contains the new element at the indicated position.
+    /// A new array with the specified element inserted at the indicated position.
     /// </returns>
     public static T[] InsertAt<T>(this T[] array, int position, T item)
     {
@@ -109,14 +107,14 @@ public static class ArrayExtensions
     }
 
     /// <summary>
-    /// Insert an array of elements in the array from the indicated position.
+    /// Inserts an array of elements into the array at the specified position.
     /// </summary>
-    /// <typeparam name="T">Element array type</typeparam>
-    /// <param name="array">Elements array</param>
-    /// <param name="position">Position into array</param>
-    /// <param name="items">Elements to insert</param>
+    /// <typeparam name="T">The type of elements in the array.</typeparam>
+    /// <param name="array">The original array.</param>
+    /// <param name="position">The index at which to insert the array of elements.</param>
+    /// <param name="items">The array of elements to insert into the array.</param>
     /// <returns>
-    /// Returns a new array that contains the new elements array at the indicated position.
+    /// A new array with the specified array of elements inserted at the indicated position.
     /// </returns>
     public static T[] InsertAt<T>(this T[] array, int position, T[] items)
     {
@@ -144,26 +142,25 @@ public static class ArrayExtensions
     }
 
     /// <summary>
-    /// Remove an element from an array from the indicated position
+    /// Removes a specified number of elements from the array starting at the specified position.
     /// </summary>
-    /// <typeparam name="T">Element array type</typeparam>
-    /// <param name="array">>Elements array</param>
-    /// <param name="position">Position into array</param>
+    /// <typeparam name="T">The type of elements in the array.</typeparam>
+    /// <param name="array">The original array.</param>
+    /// <param name="position">The index at which to start removing elements.</param>
     /// <returns>
-    /// Returns a new array that does not contain the indicated element.
+    /// A new array with one element removed starting from the indicated position.
     /// </returns>
-    public static T[] RemoveAt<T>(this T[] array, int position) => 
-        RemoveAt(array, position, 1);
+    public static T[] RemoveAt<T>(this T[] array, int position) => RemoveAt(array, position, 1);
 
     /// <summary>
-    /// Remove an array of elements from an array from the indicated position and length.
+    /// Removes a specified number of elements from the array starting at the specified position.
     /// </summary>
-    /// <typeparam name="T">Element array type</typeparam>
-    /// <param name="array">>Elements array</param>
-    /// <param name="start">Start element index</param>
-    /// <param name="length">Length to extract</param>
+    /// <typeparam name="T">The type of elements in the array.</typeparam>
+    /// <param name="array">The original array.</param>
+    /// <param name="start">The index at which to start removing elements.</param>
+    /// <param name="length">The number of elements to remove.</param>
     /// <returns>
-    /// Returns a new array that does not contain the indicated elements.
+    /// A new array with the specified number of elements removed starting from the indicated position.
     /// </returns>
     public static T[] RemoveAt<T>(this T[] array, int start, int length)
     {
@@ -195,14 +192,14 @@ public static class ArrayExtensions
     }
 
     /// <summary>
-    /// Replace an element in the array at the indicated position.
+    /// Replaces an element in the array at the indicated position.
     /// </summary>
-    /// <typeparam name="T">Element array type</typeparam>
-    /// <param name="array">>Elements array</param>
-    /// <param name="position">Position in array</param>
-    /// <param name="item">Elements to replace</param>
+    /// <typeparam name="T">The type of elements in the array.</typeparam>
+    /// <param name="array">The original array.</param>
+    /// <param name="position">The index at which to replace the element.</param>
+    /// <param name="item">The new element to replace at the specified position.</param>
     /// <returns>
-    /// Returns a new array that contains the new array content.
+    /// A new array with the specified element replaced at the indicated position.
     /// </returns>
     public static T[] ReplaceAt<T>(this T[] array, int position, T item)
     {
@@ -221,27 +218,26 @@ public static class ArrayExtensions
     }
 
     /// <summary>
-    /// Replace a set of elements in the array at the indicated position.
+    /// Replaces a specified length of elements in the array at the indicated position with a new array of items.
     /// </summary>
-    /// <typeparam name="T">Element array type</typeparam>
-    /// <param name="array">>Elements array</param>
-    /// <param name="position">Position in array</param>
-    /// <param name="length">Length to replace</param>
-    /// <param name="items">Elements to replace</param>
+    /// <typeparam name="T">The type of elements in the array.</typeparam>
+    /// <param name="array">The original array.</param>
+    /// <param name="position">The index at which to start replacing elements.</param>
+    /// <param name="length">The number of elements to replace.</param>
+    /// <param name="items">The new array of items to insert at the specified position.</param>
     /// <returns>
-    /// Returns a new array that contains the new array content.
+    /// A new array with the specified length of elements replaced at the indicated position.
     /// </returns>
-    public static T[] ReplaceAt<T>(this T[] array, int position, int length, T[] items) => 
-        InsertAt(RemoveAt(array, position, length), position, items);
+    public static T[] ReplaceAt<T>(this T[] array, int position, int length, T[] items) => InsertAt(RemoveAt(array, position, length), position, items);
 
     /// <summary>
-    /// Slice array
+    /// Slices the array into multiple arrays with a specified maximum number of elements.
     /// </summary>
-    /// <typeparam name="T">Element array type</typeparam>
-    /// <param name="source">Target array</param>
-    /// <param name="maxResultElements">Max elements for sub-arrays</param>
+    /// <typeparam name="T">The type of elements in the array.</typeparam>
+    /// <param name="source">The source array to be sliced.</param>
+    /// <param name="maxResultElements">The maximum number of elements in each sliced array.</param>
     /// <returns>
-    /// Returns a new array that contains the new array content.
+    /// A <see cref="IEnumerable{T}"/> of arrays, each containing a maximum of <paramref name="maxResultElements"/> elements.
     /// </returns>
     public static IEnumerable<T[]> SliceArray<T>(this T[] source, int maxResultElements)
     {
@@ -273,17 +269,14 @@ public static class ArrayExtensions
 
     #region internal static methods
 
-    internal static void ReverseContents<T>(this T[] array) => 
-        ReverseContents(array, 0, array.Length);
+    internal static void ReverseContents<T>(this T[] array) => ReverseContents(array, 0, array.Length);
 
     internal static void ReverseContents<T>(this T[] array, int start, int count)
     {
         int end = start + count - 1;
         for (int i = start, j = end; i < j; i++, j--)
         {
-            T tmp = array[i];
-            array[i] = array[j];
-            array[j] = tmp;
+            (array[i], array[j]) = (array[j], array[i]);
         }
     }
 

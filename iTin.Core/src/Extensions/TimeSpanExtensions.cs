@@ -9,17 +9,23 @@ using iTin.Logging;
 namespace iTin.Core;
 
 /// <summary>
-/// Static class than contains extension methods for objects of type <see cref="T:System.TimeSpan" />.
+/// Provides extension methods for working with collections of <see cref="TimeSpan"/> objects.
 /// </summary> 
 public static class TimeSpanExtensions
 {
     /// <summary>
-    /// Returns total time.
+    /// Returns the total time calculated by summing all the durations in the collection.
     /// </summary>
-    /// <param name="durations">Target timeSpan list.</param>
+    /// <param name="durations">The collection of <see cref="TimeSpan"/> objects to calculate the total time from.</param>
     /// <returns>
-    /// A <see cref="T:System.TimeSpan" /> that contains total time.
+    /// A <see cref="TimeSpan"/> representing the total time calculated by summing all the durations in the collection.
     /// </returns>
+    /// <remarks>
+    /// <para>
+    /// This method calculates the total time by summing the <see cref="TimeSpan.TotalSeconds"/> of each duration in the collection.
+    /// </para>
+    /// </remarks>
+    /// <exception cref="ArgumentNullException">Thrown when the input collection (<paramref name="durations"/>) is <see langword="null"/>.</exception>
     public static TimeSpan TotalTime(this IEnumerable<TimeSpan> durations)
     {
         Logger.Instance.Debug("");
@@ -35,12 +41,18 @@ public static class TimeSpanExtensions
     }
 
     /// <summary>
-    /// Converts a <see cref="T:System.TimeSpan" /> object into <b>dd'd' HH'h' MM'm' ss's'</b> or <b>HH'h' MM'm' ss's'</b> or <b>MM'm' ss's'</b> string.
+    /// Converts a <see cref="TimeSpan"/> object into a string with a short format.
     /// </summary>
-    /// <param name="target">Target timeSpan.</param>
+    /// <param name="target">The <see cref="TimeSpan"/> object to convert.</param>
     /// <returns>
-    /// A <see cref="T:System.String" /> that contains the expected format.
+    /// A string representation of the <see cref="TimeSpan"/> object with the format "HH:mm".
     /// </returns>
+    /// <remarks>
+    /// <para>
+    /// This method formats the <paramref name="target"/> TimeSpan object as "HH:mm".
+    /// </para>
+    /// </remarks>
+    /// <exception cref="ArgumentNullException">Thrown when the input TimeSpan (<paramref name="target"/>) is <see langword="null"/>.</exception>
     public static string ToShortFormat(this TimeSpan target)
     {
         Logger.Instance.Debug("");

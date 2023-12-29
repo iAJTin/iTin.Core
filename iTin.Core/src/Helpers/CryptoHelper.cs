@@ -9,7 +9,7 @@ using iTin.Logging;
 namespace iTin.Core.Helpers;
 
 /// <summary>
-/// Static class which contains methods for works with encrypt/decrypt.
+/// A helper class providing methods for encryption and decryption using the Rijndael symmetric key algorithm.
 /// </summary>
 public static class CryptoHelper
 {

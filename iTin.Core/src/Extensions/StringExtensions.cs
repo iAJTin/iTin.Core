@@ -6,7 +6,6 @@ using System.IO;
 using System.Linq;
 using System.Security;
 using System.Text;
-using System.Threading.Tasks;
 
 #if NETSTANDARD2_1 || NET5_0_OR_GREATER
 
@@ -19,19 +18,24 @@ using iTin.Logging;
 namespace iTin.Core;
 
 /// <summary>
-/// Static class than contains extension methods for objects of type <see cref="T:System.String"/>.
-/// </summary> 
+/// Provides extension methods for working with <see cref="string"/> values.
+/// </summary>
 public static class StringExtensions
 {
     /// <summary>
-    /// <para>Tries to convert the value specified in its boolean equivalent value. Default value is <b>false</b>.</para>
-    /// <para>Supported values are: "true", "false", "yes", "no", "si", "on", "off", "t", "f", "y", "n", "1", "0".</para>
+    /// Tries to convert the specified string value to its <see cref="bool"/> equivalent.
+    /// Default value is <see langword="false"/>.<br/>
+    /// Supported values are: 'true', 'false', 'yes', 'no', 't', 'f', 'y', 'n', '1', '0'.
     /// </summary>
-    /// <param name="value">The value to convert.</param>
+    /// <param name="value">The string value to convert.</param>
     /// <returns>
-    /// Returns a <see cref="T:System.Boolean" /> value that represents specified value.
+    /// <see langword="true"/> if the conversion is successful; otherwise, <see langword="false"/>.
     /// </returns>
-    /// <exception cref="System.ArgumentException">Value is not a boolean value.</exception>
+    /// <remarks>
+    /// This method performs a case-insensitive comparison of the input string value with various boolean representations.<br/>
+    /// If the input value is <see langword="null"/> or empty, the default value is <see langword="false"/>.
+    /// </remarks>
+    /// <exception cref="ArgumentException">Thrown when the input value is not a recognized boolean representation.</exception>
     public static bool AsBoolean(this string value)
     {
         Logger.Instance.Debug("");
@@ -108,14 +112,17 @@ public static class StringExtensions
     }
 
     /// <summary>
-    /// Returns a new <see cref="T:System.IO.Stream"/> from target <see cref="T:System.String"/> encoding by specified encoding type. If is <b>null</b> uses defaults encoding.
-    /// If is <b>null</b> uses default encoding.
+    /// Returns a new <see cref="Stream"/> from the specified string target.
     /// </summary>
-    /// <param name="target">Target string.</param>
-    /// <param name="encoding">The character encoding to use.</param>
+    /// <param name="target">The string value to convert into a stream.</param>
+    /// <param name="encoding">The encoding to use for the stream. If not provided, the default encoding is used.</param>
     /// <returns>
-    /// A new <see cref="T:System.IO.Stream"/> from target string.
+    /// A <see cref="Stream"/> containing the content of the input string.
     /// </returns>
+    /// <remarks>
+    /// This method creates a new <see cref="MemoryStream"/> and writes the string content using the specified or default encoding.<br/>
+    /// The resulting stream is positioned at the beginning.
+    /// </remarks>
     public static Stream AsStream(this string target, Encoding encoding = null)
     {
         Logger.Instance.Debug("");
@@ -137,13 +144,17 @@ public static class StringExtensions
     }
 
     /// <summary>
-    /// Decodes the input <see cref="T:System.String"/> in base64 using specified encoding, if not specified by default the <b>UTF8</b> encoding is used.
+    /// Decodes the input string in base64 using the specified encoding.<br/>
+    /// If encoding is not specified, UTF-8 encoding is used by default.
     /// </summary>
-    /// <param name="value">Base64 value to decode</param>
-    /// <param name="encoding">Encoding to use</param>
+    /// <param name="value">The base64-encoded string to decode.</param>
+    /// <param name="encoding">The encoding to use for the decoding. If not provided, UTF-8 encoding is used.</param>
     /// <returns>
-    /// Returns a new <see cref="T:System.String"/> that uses the specified encoding.
+    /// The decoded string from the base64 input using the specified or default encoding.
     /// </returns>
+    /// <remarks>
+    /// This method decodes a base64-encoded string into its original representation using the specified or default encoding.
+    /// </remarks>
     public static string FromBase64(this string value, Encoding encoding = null)
     {
         Logger.Instance.Debug("");
@@ -168,12 +179,15 @@ public static class StringExtensions
     }
 
     /// <summary>
-    /// Determines whether this value has a value.
+    /// Determines whether the specified string has a value.
     /// </summary>
-    /// <param name="value"></param>
+    /// <param name="value">The string to check for a value.</param>
     /// <returns>
-    /// <b>true</b> if specified value not is <b>null</b> or <b>Empty</b>; Otherwise, <strong>false</strong>.
+    /// <see langword="true"/> if the string is not <see langword="null"/> or empty; otherwise, <see langword="false"/>.
     /// </returns>
+    /// <remarks>
+    /// This method checks whether the specified string has a value by verifying that it is not <see langword="null"/> or empty.
+    /// </remarks>
     public static bool HasValue(this string value)
     {
         Logger.Instance.Debug("");
@@ -189,13 +203,16 @@ public static class StringExtensions
     }
 
     /// <summary>
-    /// <para>Determines whether this value is a boolean value.</para>
-    /// <para>Supported values are: "true", "false", "yes", "no", "on", "off", "si", "t", "f", "y", "n", "1", "0".</para>
+    /// Determines whether the specified string represents a boolean value.
     /// </summary>
-    /// <param name="value">The value to check.</param>
+    /// <param name="value">The string to check for a boolean value.</param>
     /// <returns>
-    /// <b>true</b> if specified value is a valid boolean value; Otherwise, <strong>false</strong> .
+    /// <see langword="true"/> if the string represents a boolean value; otherwise, <see langword="false"/>.
     /// </returns>
+    /// <remarks>
+    /// This method checks whether the specified string represents a boolean value by comparing it to common boolean representations,
+    /// such as 'true', 'false', 'yes', 'no', 't', 'f', 'y', 'n', 'on', 'off', '1', and '0'.
+    /// </remarks>
     public static bool IsBoolean(this string value)
     {
         Logger.Instance.Debug("");
@@ -271,13 +288,17 @@ public static class StringExtensions
     }
 
     /// <summary>
-    /// Determines whether this instance and another specified System.String object have the same value.
+    /// Determines whether the current instance and another specified string object have the same value, ignoring case.
     /// </summary>
-    /// <param name="instance">The string to check equality.</param>
-    /// <param name="comparing">The comparing with string.</param>
+    /// <param name="instance">The string to compare.</param>
+    /// <param name="comparing">The string to compare to the current instance.</param>
     /// <returns>
-    /// <b>true</b> if the value of the comparing parameter is the same as this string; otherwise, <b>false</b>.
+    /// <see langword="true"/> if the strings have the same value, ignoring case; otherwise, <see langword="false"/>.
     /// </returns>
+    /// <remarks>
+    /// This method performs a case-insensitive comparison to determine whether the current instance and the specified string have the same value.<br/>
+    /// It returns <see langword="true"/> if the values are equal, ignoring case; otherwise, it returns <see langword="false"/>.
+    /// </remarks>
     public static bool IsCaseInsensitiveEqual(this string instance, string comparing)
     {
         Logger.Instance.Debug("");
@@ -294,13 +315,17 @@ public static class StringExtensions
     }
 
     /// <summary>
-    /// Determines whether this instance and another specified System.String object have the same value.
+    /// Determines whether the current instance and another specified string object have the same value, considering case sensitivity.
     /// </summary>
-    /// <param name="instance">The string to check equality.</param>
-    /// <param name="comparing">The comparing with string.</param>
+    /// <param name="instance">The string to compare.</param>
+    /// <param name="comparing">The string to compare to the current instance.</param>
     /// <returns>
-    /// <b>true</b> if the value of the comparing parameter is the same as this string; otherwise, <b>false</b>.
+    /// <see langword="true"/> if the strings have the same value, considering case sensitivity; otherwise, <see langword="false"/>.
     /// </returns>
+    /// <remarks>
+    /// This method performs a case-sensitive comparison to determine whether the current instance and the specified string have the same value.<br/>
+    /// It returns <see langword="true"/> if the values are equal, considering case sensitivity; otherwise, it returns <see langword="false"/>.
+    /// </remarks>
     public static bool IsCaseSensitiveEqual(this string instance, string comparing)
     {
         Logger.Instance.Debug("");
@@ -317,12 +342,16 @@ public static class StringExtensions
     }
 
     /// <summary>
-    /// Determines whether string value is <b>null</b> (<b>Nothing</b> in Visual Basic) value.
+    /// Determines whether the specified string value is a <see langword="null"/> value.
     /// </summary>
-    /// <param name="value"></param>
+    /// <param name="value">The string value to check for <see langword="null"/>.</param>
     /// <returns>
-    /// <b>true</b> if specified value is <b>null</b>; Otherwise, <strong>false</strong>.
+    /// <see langword="true"/> if the specified string value is <see langword="null"/>; otherwise, <see langword="false"/>.
     /// </returns>
+    /// <remarks>
+    /// This method checks whether the specified string value is a <see langword="null"/> value.<br/>
+    /// It returns <see langword="true"/> if the value is <see langword="null"/>; otherwise, it returns <see langword="false"/>.
+    /// </remarks>
     public static bool IsNullValue(this string value)
     {
         Logger.Instance.Debug("");
@@ -338,12 +367,16 @@ public static class StringExtensions
     }
 
     /// <summary>
-    /// Determines whether the specified value is a numeric value.
+    /// Determines whether the specified string value is a numeric value.
     /// </summary>
-    /// <param name="value">The value.</param>
+    /// <param name="value">The string value to check for numeric content.</param>
     /// <returns>
-    /// <b>true</b> if is numeric; Otherwise <b>false</b>.
+    /// <see langword="true"/> if the specified string value represents a numeric value; otherwise, <see langword="false"/>.
     /// </returns>
+    /// <remarks>
+    /// This method checks whether the specified string value is a numeric value by attempting to parse it as a long integer.<br/>
+    /// It returns <see langword="true"/> if the parsing is successful; otherwise, it returns <see langword="false"/>.
+    /// </remarks>
     public static bool IsNumeric(this string value)
     {
         Logger.Instance.Debug("");
@@ -361,10 +394,10 @@ public static class StringExtensions
     /// <summary>
     /// Returns a string containing a specified number of characters from the left side of a string.
     /// </summary>
-    /// <param name="str">Expression of type <see cref="T:System.String" /> from which the characters that are furthest to the left are returned.</param>
-    /// <param name="length">Numeric expression of type <see cref= "T:System.Int32" /> that indicates how many characters are to be returned.</param>
+    /// <param name="str">Expression of type <see cref="string"/> from which the characters that are furthest to the left are returned.</param>
+    /// <param name="length">Numeric expression of type <see cref= "int"/> that indicates how many characters are to be returned.</param>
     /// <returns>
-    /// A <see cref="T:System.String" /> with the result.
+    /// A <see cref="string"/> with the result.
     /// </returns>
     public static string Left(this string str, int length)
     {
@@ -407,21 +440,24 @@ public static class StringExtensions
     }
 
     /// <summary>
-    /// Remove control chars from input string.
+    /// Removes control characters from the specified string.
     /// </summary>
-    /// <param name="input">The value.</param>
+    /// <param name="input">The string from which control characters should be removed.</param>
     /// <returns>
-    /// Returns input string without control chars.
+    /// A new string that is equivalent to the input string, but with control characters removed.
     /// </returns>
-    public static string RemoveControlCharacters(this string input) => 
-        new(input.Where(c => !char.IsControl(c)).ToArray());
+    /// <remarks>
+    /// Control characters are characters with ASCII values less than 32, excluding '\r' (carriage return),
+    /// '\n' (newline), and '\t' (tab).
+    /// </remarks>
+    public static string RemoveControlCharacters(this string input) => new(input.Where(c => !char.IsControl(c)).ToArray());
 
     /// <summary>
-    /// Returns a <see cref="T:System.String"/> that contains the value of <paramref name="value"/> parameter reversed.
+    /// Reverses the characters in the specified string.
     /// </summary>
-    /// <param name="value">The <see cref="T:System.String"/> to reverse.</param>
+    /// <param name="value">The string to reverse.</param>
     /// <returns>
-    /// A new <see cref="T:System.String"/> that contains the value of <paramref name="value"/> parameter reversed.
+    /// A new string that contains the characters of the input string in reverse order.
     /// </returns>
     public static string Reverse(this string value)
     {
@@ -464,12 +500,12 @@ public static class StringExtensions
     }
 
     /// <summary>
-    /// Encodes the input <see cref="T:System.String"/> in base64 using specified encoding, if not specified by default the <b>UTF8</b> encoding is used.
+    /// Encodes the input string in Base64 using the specified encoding; if not specified, the default is UTF-8.
     /// </summary>
-    /// <param name="value">Value to encode in base64</param>
-    /// <param name="encoding">Encoding to use</param>
+    /// <param name="value">The string to encode.</param>
+    /// <param name="encoding">The encoding to use for the conversion. If not provided, UTF-8 encoding is used by default.</param>
     /// <returns>
-    /// Returns input string with first letter is upper.
+    /// A Base64-encoded string representing the input string.
     /// </returns>
     public static string ToBase64(this string value, Encoding encoding = null)
     {
@@ -495,13 +531,16 @@ public static class StringExtensions
     }
 
     /// <summary>
-    /// Converts string to byte array with specified encoding.
+    /// Converts the string to a byte array using the specified encoding; if not specified, the default is UTF-8.
     /// </summary>
-    /// <param name="value">Target string.</param>
-    /// <param name="encoding">The character encoding to use.</param>
+    /// <param name="value">The string to convert to a byte array.</param>
+    /// <param name="encoding">The encoding to use for the conversion. If not provided, UTF-8 encoding is used by default.</param>
     /// <returns>
-    /// Returns byte array.
+    /// A byte array representing the content of the input string.
     /// </returns>
+    /// <remarks>
+    /// If the input string is empty or <see langword="null"/>, the method returns <see langword="null"/>.
+    /// </remarks>
     public static byte[] ToByteArray(this string value, Encoding encoding = null)
     {
         Logger.Instance.Debug("");
@@ -531,11 +570,11 @@ public static class StringExtensions
     }
 
     /// <summary>
-    /// Returns a string that contains input string as camel case format.
+    /// Returns a string that contains the input string in camel case format.
     /// </summary>
-    /// <param name="instance">The string to convert.</param>
+    /// <param name="instance">The string to convert to camel case.</param>
     /// <returns>
-    /// A new <see cref="T:System.String"/> converted
+    /// A string in camel case format.
     /// </returns>
     public static string ToCamelCase(this string instance)
     {
@@ -552,13 +591,13 @@ public static class StringExtensions
     }
 
     /// <summary>
-    /// Converts string to enum object
+    /// Converts a string to an enumeration value of type <typeparamref name="T"/>.
     /// </summary>
-    /// <typeparam name="T">Type of enum</typeparam>
-    /// <param name="value">String value to convert</param>
-    /// <param name="defaultValue">The default value.</param>
+    /// <typeparam name="T">The enumeration type to convert to.</typeparam>
+    /// <param name="value">The string to convert to an enumeration value.</param>
+    /// <param name="defaultValue">The default value to return if the conversion fails. Default is <c>default(T)</c>.</param>
     /// <returns>
-    /// Returns enum object.
+    /// An enumeration value of type <typeparamref name="T"/> if the conversion is successful; otherwise, the default value.
     /// </returns>
     public static T ToEnum<T>(this string value, T defaultValue = default) where T : struct
     {
@@ -588,16 +627,19 @@ public static class StringExtensions
     }
 
     /// <summary>
-    /// Converts string to enum object by emun description attribute.
+    /// Converts a string to an enumeration value of type <typeparamref name="T"/> based on the description attribute of the enum.
     /// </summary>
-    /// <typeparam name="T">Type of enum</typeparam>
-    /// <param name="description">Description of target enum value</param>
-    /// <returns>Returns enum object</returns>
+    /// <typeparam name="T">The enumeration type to convert to.</typeparam>
+    /// <param name="description">The description attribute value to match with an enum value.</param>
+    /// <returns>
+    /// An enumeration value of type <typeparamref name="T"/> that has a description attribute matching the provided value.
+    /// </returns>
+    /// <exception cref="ArgumentException">Thrown if no enum value with the specified description is found.</exception>
     public static T ToEnumByDescription<T>(this string description) where T : struct
     {
         Logger.Instance.Debug("");
         Logger.Instance.Debug($" Assembly: {typeof(StringExtensions).Assembly.GetName().Name}, v{typeof(StringExtensions).Assembly.GetName().Version}, Namespace: {typeof(StringExtensions).Namespace}, Class: {nameof(StringExtensions)}");
-        Logger.Instance.Debug($" Converts string to enum object by emun description attribute");
+        Logger.Instance.Debug($" Converts string to enum object by description attribute");
         Logger.Instance.Debug($" > Signature: ({typeof(T)}) ToEnumByDescription<T>(this {typeof(string)})");
         Logger.Instance.Debug($"   > description: {description}");
 
@@ -619,24 +661,28 @@ public static class StringExtensions
     }
 
     /// <summary>
-    /// Returns a new list of strings splitted with specified char
+    /// Splits a string into a list of substrings based on the specified separator character.
     /// </summary>
-    /// <param name="value">String value to split</param>
-    /// <param name="separator">separator</param>
+    /// <param name="value">The string to split.</param>
+    /// <param name="separator">The character used to split the string.</param>
     /// <returns>
-    /// Returns a new <see cref="IEnumerable{T}"/>.
-    ///  </returns>
-    public static IEnumerable<string> ToListWithSeparator(this string value, char separator) => 
-        value.ToListWithSeparator(new[] { separator });
+    /// An enumerable collection of substrings.
+    /// </returns>
+    public static IEnumerable<string> ToListWithSeparator(this string value, char separator) => value.ToListWithSeparator(new[] { separator });
 
     /// <summary>
-    /// Returns a new list of strings splitted with specified chars
+    /// Returns a new list of strings by splitting the input string using the specified characters as separators.
     /// </summary>
-    /// <param name="value">String value to split</param>
-    /// <param name="separators">separator chars</param>
+    /// <param name="value">The input string to be split.</param>
+    /// <param name="separators">An array of characters used as separators for splitting the input string.</param>
     /// <returns>
-    /// Returns a new <see cref="IEnumerable{T}"/>.
-    ///  </returns>
+    /// A list of strings resulting from splitting the input string using the specified separators.
+    /// The returned list excludes empty entries resulting from consecutive separators or leading/trailing separators.
+    /// </returns>
+    /// <remarks>
+    /// This method splits the input string using the specified characters as separators.<br/>
+    /// Empty entries resulting from consecutive separators or leading/trailing separators are excluded from the final list.
+    /// </remarks>
     public static IEnumerable<string> ToListWithSeparator(this string value, char[] separators)
     {
         Logger.Instance.Debug("");
@@ -653,10 +699,16 @@ public static class StringExtensions
     }
 
     /// <summary>
-    /// Converts a string into a "SecureString"
+    /// Converts a <see cref="string"/> into a <see cref="SecureString"/> object.
     /// </summary>
-    /// <param name="text">Input String</param>
-    /// <returns></returns>
+    /// <param name="text">The input string to be converted.</param>
+    /// <returns>
+    /// A <see cref="SecureString"/> containing the characters from the input string.
+    /// </returns>
+    /// <remarks>
+    /// This method creates a new <see cref="SecureString"/> and appends each character from the input string.<br/>
+    /// The resulting <see cref="SecureString"/> provides a more secure representation of the original string.
+    /// </remarks>
     public static SecureString ToSecureString(this string text)
     {
         Logger.Instance.Debug("");
@@ -679,12 +731,16 @@ public static class StringExtensions
     }
 
     /// <summary>
-    /// Uppers the case first letter.
+    /// Converts the first letter of a <see cref="string"/> to uppercase.
     /// </summary>
-    /// <param name="value">The value.</param>
+    /// <param name="value">The input string to be modified.</param>
     /// <returns>
-    /// Returns input string with first letter is upper.
+    /// A new <see cref="string"/> with the first letter in uppercase.<br/>
+    /// If the input string is empty, the method returns the original string.
     /// </returns>
+    /// <remarks>
+    /// This method takes a string as input and returns a new string where the first letter is converted to uppercase.
+    /// </remarks>
     public static string UpperCaseFirstLetter(this string value)
     {
         Logger.Instance.Debug("");
@@ -710,57 +766,47 @@ public static class StringExtensions
 #if NETSTANDARD2_1 || NET5_0_OR_GREATER
 
     /// <summary>
-    /// 
+    /// Provides a way to efficiently enumerate substrings of a <see cref="string"/> based on an array of separators.
     /// </summary>
-    /// <param name="str"></param>
-    /// <param name="separators"></param>
-    /// <returns></returns>
+    /// <param name="str">The input string to be split.</param>
+    /// <param name="separators">An array of characters that act as separators for splitting the string.</param>
+    /// <returns>
+    /// A <see cref="SplitEnumerator"/> that can be used to efficiently iterate over the substrings of the input string.
+    /// </returns>
+    /// <remarks>
+    /// This method creates a <see cref="SplitEnumerator"/> that allows iterating over substrings of the input string based on the provided array of separators.<br/>
+    /// It is more memory-efficient than creating an array of substrings upfront.
+    /// </remarks>
     public static SplitEnumerator SplitString(this string str, char[] separators) => new(str.AsSpan(), separators.AsSpan());
 
     /// <summary>
-    /// 
+    /// Provides a way to efficiently enumerate lines of a <see cref="string"/>.
     /// </summary>
-    /// <param name="str"></param>
-    /// <returns></returns>
+    /// <param name="str">The input string to be split into lines.</param>
+    /// <returns>
+    /// A <see cref="SplitEnumerator"/> that can be used to efficiently iterate over the lines of the input string.
+    /// </returns>
+    /// <remarks>
+    /// This method creates a <see cref="SplitEnumerator"/> that allows iterating over lines of the input string.<br/>
+    /// It considers both carriage return ('\r') and line feed ('\n') characters as line separators.<br/>
+    /// It is more memory-efficient than creating an array of lines upfront.
+    /// </remarks>
     public static SplitEnumerator SplitLines(this string str) => new(str, new[] {'\r', '\n'});
 
 #else
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="str"></param>
-        /// <returns></returns>
-        public static string[] SplitLines(this string str) => str.Split(new[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
-
-#endif
-
 
     /// <summary>
-    /// Returns a new <see cref="T:System.IO.Stream"/> from target <see cref="T:System.String"/> encoding by specified encoding type. If is <b>null</b> uses defaults encoding.
-    /// If is <b>null</b> uses default encoding.
+    /// Splits a <see cref="string"/> into an array of lines.
     /// </summary>
-    /// <param name="target">Target string.</param>
-    /// <param name="encoding">The character encoding to use.</param>
+    /// <param name="str">The input string to be split into lines.</param>
     /// <returns>
-    /// A new <see cref="T:System.IO.Stream"/> from target string.
+    /// An array of lines extracted from the input string.
     /// </returns>
-    public static async Task<Stream> AsStreamAsync(this string target, Encoding encoding = null)
-    {
-        Logger.Instance.Debug("");
-        Logger.Instance.Debug($" Assembly: {typeof(StringExtensions).Assembly.GetName().Name}, v{typeof(StringExtensions).Assembly.GetName().Version}, Namespace: {typeof(StringExtensions).Namespace}, Class: {nameof(StringExtensions)}");
-        Logger.Instance.Debug($" Returns a new {typeof(Stream)} from target {typeof(string)}");
-        Logger.Instance.Debug($" > Signature: ({typeof(Task<Stream>)}) AsStreamAsync(this {typeof(string)}, {typeof(Encoding)} = null)");
-        Logger.Instance.Debug($"   > target: {target}");
-        Logger.Instance.Debug($"   > encoding: {encoding}");
+    /// <remarks>
+    /// This method splits the input string into lines using both carriage return ('\r') and line feed ('\n') characters as line separators.<br/>
+    /// Empty lines are excluded from the result.
+    /// </remarks>
+    public static string[] SplitLines(this string str) => str.Split(new[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
 
-        var stream = new MemoryStream();
-        var writer = new StreamWriter(stream, encoding ?? Encoding.Default);
-        await writer.WriteAsync(target);
-        await writer.FlushAsync();
-        stream.Position = 0;
-
-        Logger.Instance.Debug($" > Output: {stream.Length} byte(s)");
-
-        return stream;
-    }
+#endif
 }

@@ -6,38 +6,43 @@ using System.Text;
 namespace iTin.Core.Helpers;
 
 /// <summary>
-/// Static class <b>SecurityHelper</b> provides static methods for encrypt.
+/// Provides security-related utility methods.
 /// </summary>
 public static class SecurityHelper
 {
     /// <summary>
-    /// Function that given a string returns another string with the encrypted value of the input string. Uses the SHA1 algorithm.
+    /// Computes the SHA-1 hash for the input string.
     /// </summary>
-    /// <param name="input">Value to encrypt.</param>
+    /// <param name="input">The input string to be hashed.</param>
     /// <returns>
-    /// Returns a new <see cref="T:System.String" /> with the encrypted value in <b>SHA1</b>.
+    /// A Base64-encoded string representing the SHA-1 hash of the input string.
     /// </returns>
+    /// <exception cref="ArgumentNullException">Thrown when <paramref name="input"/> is <see langword="null"/>.</exception>
     public static string EncryptSha1(string input)
     {
         using var sha1 = SHA1.Create();
 
-        byte[] inputBytes = Encoding.UTF8.GetBytes(input);
-        byte[] hash = sha1.ComputeHash(inputBytes);
+        var inputBytes = Encoding.UTF8.GetBytes(input);
+        var hash = sha1.ComputeHash(inputBytes);
 
         return Convert.ToBase64String(hash);
     }
 
     /// <summary>
-    /// Generate random passwords. The minimum length is 8 characters.
+    /// Generates a random password using a GUID.
     /// </summary>
-    /// <param name="length">Password length.</param>
+    /// <param name="length">The length of the generated password. Default is 8.</param>
     /// <returns>
-    /// Returns a new <see cref="T:System.String" /> with a random password.
+    /// A randomly generated password string.
     /// </returns>
+    /// <remarks>
+    /// The method uses a GUID to generate a unique string and removes hyphens.<br/>
+    /// If the specified length is invalid, the entire GUID string is returned.
+    /// </remarks>
     public static string GenerateRandomPassword(int length = 8)
     {
         // Get the GUID
-        string guidResult = Guid.NewGuid().ToString();
+        var guidResult = Guid.NewGuid().ToString();
 
         // Remove the hyphens
         guidResult = guidResult.Replace("-", string.Empty);

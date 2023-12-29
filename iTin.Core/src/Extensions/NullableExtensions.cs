@@ -1,34 +1,34 @@
 ﻿
+using System;
+
 using iTin.Logging;
 
 namespace iTin.Core;
 
 /// <summary>
-/// Static class than contains extension methods for nullable structures.
+/// Provides extension methods related to <see cref="Nullable"/> structures.
 /// </summary> 
 public static class NullableExtensions
 {
     /// <summary>
-    /// Gets the value of the current Nullable&lt;T&gt; object if it has been assigned a valid underlying value.
-    /// If is <b>null</b> (or <b>Nothing</b> in Visual Basic) returns yours default value defined for your type.
+    /// Converts a nullable value to its non-null counterpart, or returns a default value if the original value is <see langword="null"/>.
     /// </summary>
-    /// <typeparam name="T"></typeparam>
-    /// <param name="target">Nullable type</param>
+    /// <typeparam name="T">The value type.</typeparam>
+    /// <param name="target">The nullable value.</param>
     /// <returns>
-    /// The value of the current Nullable&lt;T&gt; object if the <b>HasValue</b> property is <b>true</b>; Otherwise returns yours default value defined for your type.
+    /// The non-null value if the original value is not null; otherwise, the default value for the type.
     /// </returns>
     public static T AsNotNullValue<T>(this T? target) where T : struct => target.AsNotNullValue(default);
-        
+
     /// <summary>
-    /// Gets the value of the current Nullable&lt;T&gt; object if it has been assigned a valid underlying value.
-    /// If is <b>null</b> (or <b>Nothing</b> in Visual Basic) returns yours default value defined for your type.
+    /// Gets the value of the current <see cref="Nullable"/> object if it has been assigned a valid underlying value.
+    /// If it is null, returns the specified default value.
     /// </summary>
-    /// <typeparam name="T"></typeparam>
-    /// <param name="target">Nullable type</param>
-    /// <param name="defaultValue">The default value.</param>
+    /// <typeparam name="T">The value type.</typeparam>
+    /// <param name="target">The nullable value.</param>
+    /// <param name="defaultValue">The default value to return if the original value is <see langword="null"/>.</param>
     /// <returns>
-    /// If the value is <b>null</b> (or <b>Nothing</b> in Visual Basic) returns the default value specified; Otherwise returns its value.
-    /// The value of the current Nullable&lt;T&gt; object if the <b>HasValue</b> property is <b>true</b>; Otherwise returns the default value specified.
+    /// The non-null value if the original value is not null; otherwise, the specified default value.
     /// </returns>
     public static T AsNotNullValue<T>(this T? target, T defaultValue) where T : struct
     {

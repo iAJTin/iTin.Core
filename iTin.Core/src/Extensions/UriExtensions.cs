@@ -9,17 +9,23 @@ using iTin.Core.ComponentModel.Results;
 namespace iTin.Core;
 
 /// <summary>
-/// Static class than contains extension methods for a <see cref="Uri"/> references.
+/// Provides extension methods for checking the accessibility of a <see cref="Uri"/>.
 /// </summary> 
 public static class UriExtensions
 {
     /// <summary>
-    /// Gets or sets a value indicating whether the specified <see cref="Uri"/> is accessible synchronously.
+    /// Checks whether the specified <see cref="Uri"/> is accessible.
     /// </summary>
-    /// <param name="uri">Target <see cref="Uri"/> to check</param>
+    /// <param name="uri">The <see cref="Uri"/> to check for accessibility.</param>
     /// <returns>
-    /// <b>true</b> if specified <see cref="Uri"/> is accessible; otherwise <b>false</b>.
+    /// A <see cref="IResult"/> indicating the accessibility status.<br/>
+    /// If the <see cref="Uri"/> is accessible, the result is a success; otherwise, it contains an error message.
     /// </returns>
+    /// <remarks>
+    /// This method attempts to create a <see cref="WebRequest"/> using the specified <see cref="Uri"/> and checks whether a response can be obtained.<br/>
+    /// If successful, the result is a success; otherwise, it contains an error message.
+    /// </remarks>
+    /// <exception cref="ArgumentNullException">Thrown when the input <see cref="Uri"/> (<paramref name="uri"/>) is <see langword="null"/>.</exception>
     public static IResult IsAccessible(this Uri uri)
     {
         if (uri == null)
@@ -40,13 +46,12 @@ public static class UriExtensions
         }
     }
 
-
     /// <summary>
     /// Gets or sets a value indicating whether the specified <see cref="Uri"/> is accessible asynchronously.
     /// </summary>
     /// <param name="uri">Target <see cref="Uri"/> to check</param>
     /// <returns>
-    /// <b>true</b> if specified <see cref="Uri"/> is accessible; otherwise <b>false</b>.
+    /// <see langword="true"/> if specified <see cref="Uri"/> is accessible; otherwise <see langword="false"/>.
     /// </returns>
     public static async Task<IResult> IsAccessibleAsync(this Uri uri)
     {

@@ -8,20 +8,23 @@ using iTin.Logging;
 namespace iTin.Core;
 
 /// <summary>
-/// Static class than contains extension methods for generic objects.
-/// </summary> 
+/// Provides a set of generic extension methods.
+/// </summary>
 public static class GenericExtensions
 {
     /// <summary>
-    /// Executes a function if a given predicate is <b>true</b>.
+    /// Executes a function if a specified predicate is <see langword="true"/>.
     /// </summary>
-    /// <typeparam name="T">Parameter type</typeparam>
-    /// <param name="val">The value.</param>
-    /// <param name="predicate">The predicate.</param>
-    /// <param name="func">The function to execute.</param>
+    /// <typeparam name="T">The type of the parameter and result.</typeparam>
+    /// <param name="val">The value to be processed.</param>
+    /// <param name="predicate">The predicate to evaluate.</param>
+    /// <param name="func">The function to execute if the predicate is <see langword="true"/>.</param>
     /// <returns>
-    /// Result
+    /// The result of the function if the predicate is <see langword="true"/>; otherwise, the original value.
     /// </returns>
+    /// <remarks>
+    /// This method evaluates the specified predicate and, if <see langword="true"/>, executes the provided function with the given value.
+    /// </remarks>
     public static T If<T>(this T val, Func<T, bool> predicate, Func<T, T> func)
     {
         Logger.Instance.Debug("");
@@ -46,14 +49,17 @@ public static class GenericExtensions
     }
 
     /// <summary>
-    /// Determines weather values are into list.
+    /// Determines whether a value is present in a specified list of values.
     /// </summary>
-    /// <typeparam name="T">Type of list elements</typeparam>
-    /// <param name="source">Target array.</param>
-    /// <param name="values">Values to check.</param>
+    /// <typeparam name="T">The type of the elements.</typeparam>
+    /// <param name="source">The value to check for presence in the list.</param>
+    /// <param name="values">The list of values to check against.</param>
     /// <returns>
-    /// <b>true</b> if values are into list; Otherwise, <b>false</b>.
+    /// <see langword="true"/> if the value is present in the list; otherwise, <see langword="false"/>.
     /// </returns>
+    /// <remarks>
+    /// This method checks if the specified value is contained within the provided list of values.
+    /// </remarks>
     public static bool In<T>(this T source, params T[] values)
     {
         Logger.Instance.Debug("");
@@ -70,24 +76,31 @@ public static class GenericExtensions
     }
 
     /// <summary>
-    /// Determines weather values are into list.
+    /// Determines whether a value is present in a specified collection of values.
     /// </summary>
-    /// <typeparam name="T">Type of list elements</typeparam>
-    /// <param name="source">Target list.</param>
-    /// <param name="values">Values to check.</param>
+    /// <typeparam name="T">The type of the elements.</typeparam>
+    /// <param name="source">The value to check for presence in the collection.</param>
+    /// <param name="values">The collection of values to check against.</param>
     /// <returns>
-    /// <b>true</b> if values are into list; Otherwise, <b>false</b>.
+    ///<see langword="true"/> if the value is present in the collection; otherwise, <see langword="false"/>.
     /// </returns>
-    public static bool In<T>(this T source, IEnumerable<T> values) => 
-        source.In(values.ToArray());
+    /// <remarks>
+    /// This method checks if the specified value is contained within the provided collection of values.
+    /// </remarks>
+    public static bool In<T>(this T source, IEnumerable<T> values) => source.In(values.ToArray());
 
     /// <summary>
-    /// 
+    /// Invokes a specified function with the current value and returns the result.
     /// </summary>
-    /// <param name="x"></param>
-    /// <param name="f"></param>
-    /// <typeparam name="T"></typeparam>
-    /// <typeparam name="TResult"></typeparam>
-    /// <returns></returns>
+    /// <typeparam name="T">The type of the input value.</typeparam>
+    /// <typeparam name="TResult">The type of the result.</typeparam>
+    /// <param name="x">The input value.</param>
+    /// <param name="f">The function to invoke.</param>
+    /// <returns>
+    /// The result of invoking the specified function with the current value.
+    /// </returns>
+    /// <remarks>
+    /// This method applies a specified function to the current value and returns the result.
+    /// </remarks>
     public static TResult Pipe<T, TResult>(this T x, in Func<T, TResult> f) => f(x);
 }

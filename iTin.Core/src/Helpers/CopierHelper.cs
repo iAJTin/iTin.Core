@@ -8,18 +8,23 @@ using iTin.Logging;
 
 namespace iTin.Core.Helpers;
 
-/// <summary> 
-/// Static class than contains methods for cloning objects.
+/// <summary>
+/// A helper class providing methods for creating deep copies of objects.
 /// </summary>
 public static class CopierHelper
 {
     /// <summary>
-    /// Deeps the copy 
+    /// Creates a deep copy of the specified object using serialization.
     /// </summary>
-    /// <typeparam name="T"></typeparam>
-    /// <param name="source">The source.</param>
-    /// <returns></returns>
-    /// <exception cref="ArgumentException">El tipo de dato debe ser serializable.</exception>
+    /// <typeparam name="T">The type of the object to be deep-copied.</typeparam>
+    /// <param name="source">The object to be deep-copied.</param>
+    /// <returns>
+    /// A deep copy of the specified object.
+    /// </returns>
+    /// <remarks>
+    /// This method uses binary serialization to create a deep copy of the object.
+    /// </remarks>
+    /// <exception cref="ArgumentException">Thrown when the type of the object is not serializable.</exception>
     public static T DeepCopy<T>(T source)
     {
         Logger.Instance.Debug("External Call");

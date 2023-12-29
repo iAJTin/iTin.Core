@@ -9,15 +9,16 @@ using iTin.Core.ComponentModel.Enumerators;
 namespace iTin.Core
 {
     /// <summary>
-    /// Static class than contains extension methods for Arrays.
-    /// </summary> 
+    /// Provides extension methods for working with <see cref="SplitEnumerator"/>.
+    /// </summary>
     public static class SplitEnumeratorExtensions
     {
         /// <summary>
-        /// 
+        /// Converts a <see cref="SplitEnumerator"/> to a <see cref="IEnumerable{String}"/>.
         /// </summary>
-        /// <param name="items"></param>
+        /// <param name="items">The <see cref="SplitEnumerator"/> to convert.</param>
         /// <returns>
+        /// A <see cref="IEnumerable{String}"/> containing the string representations of items in the <see cref="SplitEnumerator"/>.
         /// </returns>
         public static IEnumerable<string> AsEnumerable(this SplitEnumerator items)
         {
@@ -31,10 +32,11 @@ namespace iTin.Core
         }
 
         /// <summary>
-        /// 
+        /// Converts a <see cref="SplitEnumerator"/> to a <see cref="StringBuilder"/>.
         /// </summary>
-        /// <param name="items"></param>
+        /// <param name="items">The <see cref="SplitEnumerator"/> to convert.</param>
         /// <returns>
+        /// A <see cref="StringBuilder"/> containing the concatenated string representations of items in the <see cref="SplitEnumerator"/>.
         /// </returns>
         public static StringBuilder AsStringBuilder(this SplitEnumerator items)
         {

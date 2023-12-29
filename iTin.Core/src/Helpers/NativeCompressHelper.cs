@@ -9,17 +9,22 @@ using iTin.Logging;
 namespace iTin.Core.Helpers;
 
 /// <summary>
-/// Static class which contains methods for works with compress/decompress.
+/// Provides methods for compressing and decompressing text using GZip compression.
 /// </summary>
 public static class NativeCompressHelper
 {
     /// <summary>
-    /// Compress the specified text.
+    /// Compresses the specified text using GZip compression.
     /// </summary>
-    /// <param name="text">Target text.</param>
+    /// <param name="text">The text to compress.</param>
     /// <returns>
-    /// A <see cref="T:System.String" /> taht contains compress information. 
+    /// A base64-encoded string representing the compressed data.
     /// </returns>
+    /// <remarks>
+    /// The <see cref="Compress"/> method compresses the specified <paramref name="text"/> using GZip compression.<br/>
+    /// If the input <paramref name="text"/> is an empty string, the method returns the empty string.<br/>
+    /// The compressed data is represented as a base64-encoded string, including a header that indicates the original size of the data.
+    /// </remarks>
     public static string Compress(string text)
     {
         Logger.Instance.Debug("External Call");
@@ -54,12 +59,17 @@ public static class NativeCompressHelper
     }
 
     /// <summary>
-    /// Decompress the specified compressed text.
+    /// Decompresses the specified compressed text using GZip decompression.
     /// </summary>
-    /// <param name="compressedText">The compress text.</param>
+    /// <param name="compressedText">The base64-encoded string representing the compressed data.</param>
     /// <returns>
-    /// A <see cref="T:System.String" /> taht contains decompress information. 
+    /// The decompressed text.
     /// </returns>
+    /// <remarks>
+    /// The <see cref="Decompress"/> method decompresses the specified <paramref name="compressedText"/> using GZip decompression.<br/>
+    /// If the input <paramref name="compressedText"/> is an empty string, the method returns the empty string.<br/>
+    /// The decompressed text is returned as a string.
+    /// </remarks>
     public static string Decompress(string compressedText)
     {
         Logger.Instance.Debug("External Call");

@@ -2,7 +2,7 @@
 namespace iTin.Core.Helpers.Enumerations;
 
 /// <summary>
-/// Enumeración de bits.
+/// Bit enumeration
 /// </summary>
 public enum Bits
 {

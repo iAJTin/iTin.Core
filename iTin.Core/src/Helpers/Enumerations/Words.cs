@@ -2,7 +2,7 @@
 namespace iTin.Core.Helpers.Enumerations;
 
 /// <summary>
-/// Enumeración de Words
+/// Word enumeration
 /// </summary>
 public enum Words
 {

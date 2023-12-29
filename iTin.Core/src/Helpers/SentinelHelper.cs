@@ -123,7 +123,7 @@ public static class SentinelHelper
     /// </summary>
     /// <param name="parameter">The name of the method parameter.</param>
     /// <param name="argument">The value being passed as an argument.</param>
-    /// <exception cref="T:System.NotFiniteNumberException">If <paramref name="argument" /> is not a finite number.</exception>
+    /// <exception cref="NotFiniteNumberException">If <paramref name="argument" /> is not a finite number.</exception>
     [Conditional("DEBUG")]
     public static void ArgumentNotFinite(string parameter, float argument)
     {
@@ -167,7 +167,7 @@ public static class SentinelHelper
     /// <param name="min">Value Minimum permitted.</param>
     /// <param name="max">Value Maximum permitted.</param>
     /// <param name="message">Error message.</param>
-    /// <exception cref="System.ArgumentOutOfRangeException">If <paramref name="argument"/> is over the maximum specified, or is less than the specified minimum value.</exception>
+    /// <exception cref="ArgumentOutOfRangeException">If <paramref name="argument"/> is over the maximum specified, or is less than the specified minimum value.</exception>
     [Conditional("DEBUG")]
     public static void ArgumentOutOfRange<T>(string parameter, T argument, T min, T max, string message) where T : IComparable<T>
     {
@@ -213,9 +213,9 @@ public static class SentinelHelper
     /// </summary>
     /// <typeparam name="T">Type of the argument to be checked.</typeparam>
     /// <param name="value">Check value</param>
-    /// <param name="testOnly"><strong>true</strong> for performs only a test.</param>
+    /// <param name="testOnly"><see langword="true"/> for performs only a test.</param>
     /// <returns>
-    /// <strong>true</strong> if <paramref name="value"/> is a valid enum; otherwise, <strong>false</strong>.
+    /// <see langword="true"/> if <paramref name="value"/> is a valid enum; otherwise, <see langword="false"/>.
     /// </returns>
     /// <exception cref="ArgumentException">If <paramref name="value"/> isn't an enumerated type.</exception>
     /// <exception cref="InvalidEnumArgumentException">If <paramref name="value"/> not part of the enumeration.</exception>
@@ -254,10 +254,10 @@ public static class SentinelHelper
     }
 
     /// <summary>
-    /// Performs a test on the method argument, and throws an exception of type <exception cref="InvalidOperationException"/> if the specified expression is <strong>false</strong>.
+    /// Performs a test on the method argument, and throws an exception of type <exception cref="InvalidOperationException"/> if the specified expression is <see langword="false"/>.
     /// </summary>
     /// <param name="expression">Expression to evaluate.</param>
-    /// <exception cref="System.InvalidOperationException">If the result is <strong>false</strong></exception>
+    /// <exception cref="InvalidOperationException">If the result is <see langword="false"/></exception>
     [Conditional("DEBUG")]
     public static void IsFalse(bool expression)
     {
@@ -265,11 +265,11 @@ public static class SentinelHelper
     }
 
     /// <summary>
-    /// Performs a test on the method argument, and throws an exception of type <exception cref="InvalidOperationException"/> if the specified expression is <strong>false</strong>.
+    /// Performs a test on the method argument, and throws an exception of type <exception cref="InvalidOperationException"/> if the specified expression is <see langword="false"/>.
     /// </summary>
     /// <param name="expression">Expression to evaluate.</param>
     /// <param name="message">Error message.</param>
-    /// <exception cref="InvalidOperationException">If the result is <strong>false</strong></exception>
+    /// <exception cref="InvalidOperationException">If the result is <see langword="false"/></exception>
     [Conditional("DEBUG")]
     public static void IsFalse(bool expression, string message)
     {
@@ -294,11 +294,11 @@ public static class SentinelHelper
     }
 
     /// <summary>
-    /// Performs a test on the method argument, and throws an specified exception if the specified expression is <strong>false</strong>.
+    /// Performs a test on the method argument, and throws an specified exception if the specified expression is <see langword="false"/>.
     /// </summary>
     /// <param name="expression">Expression to evaluate.</param>
     /// <param name="exception">Error message.</param>
-    /// <exception cref="InvalidOperationException">If the <paramref name="exception"/> is <strong>null</strong>.</exception>
+    /// <exception cref="InvalidOperationException">If the <paramref name="exception"/> is <see langword="null"/>.</exception>
     [Conditional("DEBUG")]
     public static void IsFalse(bool expression, Exception exception)
     {
@@ -326,7 +326,7 @@ public static class SentinelHelper
     /// Performs a test on the method argument, and throws an exception of type <exception cref="InvalidOperationException" /> if the specified expression is <strong>true</strong>.
     /// </summary>
     /// <param name="expression">Expression to evaluate.</param>
-    /// <exception cref="System.InvalidOperationException">If the result is <strong>true</strong></exception>
+    /// <exception cref="InvalidOperationException">If the result is <see langword="true"/></exception>
     [Conditional("DEBUG")]
     public static void IsTrue(bool expression)
     {
@@ -338,7 +338,7 @@ public static class SentinelHelper
     /// </summary>
     /// <param name="expression">Expression to evaluate.</param>
     /// <param name="message">Error message.</param>
-    /// <exception cref="System.InvalidOperationException">If the result is <strong>true</strong></exception>
+    /// <exception cref="InvalidOperationException">If the result is <see langword="true"/>.</exception>
     [Conditional("DEBUG")]
     public static void IsTrue(bool expression, string message)
     {
@@ -363,11 +363,11 @@ public static class SentinelHelper
     }
 
     /// <summary>
-    /// Performs a test on the method argument, and throws an specified exception if the specified expression is <strong>true</strong>.
+    /// Performs a test on the method argument, and throws a specified exception if the specified expression is <see langword="true"/>.
     /// </summary>
     /// <param name="expression">Expression to evaluate.</param>
     /// <param name="exception">Error message.</param>
-    /// <exception cref="InvalidOperationException">If the <paramref name="exception"/> is <strong>null</strong>.</exception>
+    /// <exception cref="InvalidOperationException">If the <paramref name="exception"/> is <see langword="null"/>.</exception>
     [Conditional("DEBUG")]
     public static void IsTrue(bool expression, Exception exception)
     {
@@ -398,7 +398,7 @@ public static class SentinelHelper
     /// <returns>
     /// Returns same <paramref name="value"/> if it is not empty.
     /// </returns>
-    /// <exception cref="ArgumentException">If the <paramref name="value"/> is <strong>null</strong> or empty.</exception>
+    /// <exception cref="ArgumentException">If the <paramref name="value"/> is <see langword="null"/> or empty.</exception>
     public static string NotEmpty(string value)
     {
         if (string.IsNullOrWhiteSpace(value))
@@ -426,9 +426,9 @@ public static class SentinelHelper
     /// <summary>
     /// Ensures that the target value is not null, empty, or whitespace.
     /// </summary>
-    /// <param name="value">The target string, which should be checked against being null or empty.</param>
+    /// <param name="value">The target string, which should be checked against being <see langword="null"/> or empty.</param>
     /// <param name="parameterName">Name of the parameter.</param>
-    /// <exception cref="ArgumentNullException"><paramref name="value"/> is null.</exception>
+    /// <exception cref="ArgumentNullException"><paramref name="value"/> is <see langword="null"/>.</exception>
     /// <exception cref="ArgumentException"><paramref name="value"/> is empty or contains only blanks.</exception>
     [Conditional("DEBUG")]
     public static void NotNullOrWhiteSpace(string value, string parameterName)

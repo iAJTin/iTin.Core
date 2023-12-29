@@ -1,4 +1,5 @@
 ﻿
+using System;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.Versioning;
@@ -9,16 +10,23 @@ using iTin.Logging;
 namespace iTin.Core.Helpers;
 
 /// <summary>
-/// Static class which contains methods for retrieve <b>.NET Framework</b> information.
+/// Provides helper methods for working with .NET Framework information.
 /// </summary>
 public static class NetFrameworkHelper
 {
     /// <summary>
-    /// Returns <see cref="T:iTin.Core.ComponentModel.FrameworkVersion"/> that contains full path to current assembly.
+    /// Gets the framework version of the specified assembly.
     /// </summary>
+    /// <param name="assembly">The assembly for which to retrieve the framework version.</param>
     /// <returns>
-    /// A <see cref="T:iTin.Core.ComponentModel.FrameworkVersion"/> that contains full path to current assembly.
+    /// A <see cref="FrameworkVersion"/> object that represents the framework version of the specified assembly.
     /// </returns>
+    /// <remarks>
+    /// The <see cref="GetAssemblyFrameworkVersion"/> method retrieves the framework version of the specified <paramref name="assembly"/>.<br/>
+    /// It looks for the <see cref="TargetFrameworkAttribute"/> in the assembly's custom attributes to determine the framework version.<br/>
+    /// The result is encapsulated in a <see cref="FrameworkVersion"/> object.
+    /// </remarks>
+    /// <exception cref="ArgumentNullException">Thrown if <paramref name="assembly"/> is null.</exception>
     public static FrameworkVersion GetAssemblyFrameworkVersion(Assembly assembly)
     {
         Logger.Instance.Debug("");

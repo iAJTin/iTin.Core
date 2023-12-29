@@ -1,4 +1,5 @@
 ﻿
+using System;
 using System.Data;
 using System.Text;
 
@@ -7,17 +8,18 @@ using iTin.Core.Helpers;
 namespace iTin.Core;
 
 /// <summary>
-/// Static class than contains extension methods for objects of type <see cref="T:System.Data.DataTable" />.
-/// </summary> 
+/// Contains extension methods for <see cref="DataTable"/> objects.
+/// </summary>
 public static class DataTableExtensions
 {
     /// <summary>
-    /// Returns a HTML table.
+    /// Converts a DataTable to an HTML table representation.
     /// </summary>
-    /// <param name="input">The input.</param>
+    /// <param name="input">The DataTable to be converted to an HTML table.</param>
     /// <returns>
-    /// A new <seealso cref="T:System.String"/> that contains HTML table code.
+    /// A string containing the HTML representation of the DataTable as a table.
     /// </returns>
+    /// <exception cref="ArgumentNullException">Thrown when the input DataTable is <see langword="null"/>.</exception>
     public static string ToHtmlTable(this DataTable input)
     {
         SentinelHelper.ArgumentNull(input, nameof(input));

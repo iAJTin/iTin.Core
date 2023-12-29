@@ -1,11 +1,13 @@
 ﻿
+using System;
 using System.Diagnostics;
 using System.Text.RegularExpressions;
 
 namespace iTin.Core.Helpers;
 
-/// <summary> 
-/// Static class than contains methods for regular expressions. http://regexhero.net/tester/
+/// <summary>
+/// Provides utility methods for validating strings using regular expressions.<br/>
+/// http://regexhero.net/tester/
 /// </summary>
 public static class RegularExpressionHelper
 {
@@ -31,89 +33,93 @@ public static class RegularExpressionHelper
     #region public static methods
 
     /// <summary>
-    /// Determines whether <paramref name="value" /> is a numeric value.is a valid integer number.
+    /// Determines whether a string represents a numeric integer value.
     /// </summary>
-    /// <param name="value">Value to check.</param>
+    /// <param name="value">The string to be checked.</param>
     /// <returns>
-    /// <strong>true</strong> if value is numeric; otherwise, <strong>false</strong>.
+    /// <see langword="true"/> if the string is a numeric integer value; otherwise, <see langword="false"/>.
     /// </returns>
+    /// <exception cref="ArgumentNullException">Thrown when <paramref name="value"/> is <see langword="null"/>.</exception>
     public static bool IsNumeric(string value)
     {
         SentinelHelper.ArgumentNull(value, nameof(value));
 
         var format = new Regex(IntegerNumberPattern);
-        bool match = format.IsMatch(value);
+        var match = format.IsMatch(value);
 
         return match;
     }
 
     /// <summary>
-    /// Converts the string representation of a Guid to its Guid 
-    /// equivalent. A return value indicates whether the operation 
-    /// succeeded. 
+    /// Determines whether a string represents a valid GUID (Globally Unique Identifier).
     /// </summary>
-    /// <param name="value">A string containing a Guid to convert.</param>
+    /// <param name="value">The string to be checked.</param>
     /// <returns>
-    /// <strong>true</strong> if ip address is valid; otherwise, <strong>false</strong>.
+    /// <see langword="true"/> if the string is a valid GUID; otherwise, <see langword="false"/>.
     /// </returns>
+    /// <exception cref="ArgumentNullException">Thrown when <paramref name="value"/> is <see langword="null"/>.</exception>
     public static bool IsValidGuid(string value)
     {
         SentinelHelper.ArgumentNull(value, nameof(value));
 
         var format = new Regex(GuidPattern);
-        bool match = format.IsMatch(value);
+        var match = format.IsMatch(value);
 
         return match;
     }
 
     /// <summary>
-    /// Determines whether <paramref name="value" /> is valid ip address.
+    /// Determines whether a string represents a valid IP address.
     /// </summary>
-    /// <param name="value">Ip address to check.</param>
+    /// <param name="value">The string to be checked.</param>
     /// <returns>
-    /// <strong>true</strong> if ip address is valid; otherwise, <strong>false</strong>.
+    /// <see langword="true"/> if the string is a valid IP address; otherwise, <see langword="false"/>.
     /// </returns>
+    /// <exception cref="ArgumentNullException">Thrown when <paramref name="value"/> is <see langword="null"/>.</exception>
+    /// <exception cref="ArgumentException">Thrown when the length of <paramref name="value"/> is greater than 15.</exception>
     public static bool IsValidIpAddress(string value)
     {
         SentinelHelper.ArgumentNull(value, nameof(value));
         SentinelHelper.IsTrue(value.Length > 15);
 
         var format = new Regex(IpPattern);
-        bool match = format.IsMatch(value);
+        var match = format.IsMatch(value);
 
         return match;
     }
 
     /// <summary>
-    /// Determines whether <paramref name="value" /> is valid mail address.
+    /// Determines whether a string represents a valid email address.
     /// </summary>
-    /// <param name="value">Mail address to check.</param>
+    /// <param name="value">The string to be checked.</param>
     /// <returns>
-    /// <strong>true</strong> if mail address is valid; otherwise, <strong>false</strong>.
+    /// <see langword="true"/> if the string is a valid email address; otherwise, <see langword="false"/>.
     /// </returns>
+    /// <exception cref="ArgumentNullException">Thrown when <paramref name="value"/> is <see langword="null"/>.</exception>
     public static bool IsValidEmailAddress(string value)
     {
         SentinelHelper.ArgumentNull(value, nameof(value));
 
         var format = new Regex(EmailPattern);
-        bool match = format.IsMatch(value);
+        var match = format.IsMatch(value);
 
         return match;
     }
 
     /// <summary>
-    /// Determines whether <paramref name="value" /> is a valid path.
+    /// Determines whether a string represents a valid file path.
     /// </summary>
-    /// <param name="value">Path to check.</param>
+    /// <param name="value">The string to be checked.</param>
     /// <returns>
-    /// <strong>true</strong> if path is valid; otherwise, <strong>false</strong>.
+    /// <see langword="true"/> if the string is a valid file path; otherwise, <see langword="false"/>.
     /// </returns>
+    /// <exception cref="ArgumentNullException">Thrown when <paramref name="value"/> is <see langword="null"/>.</exception>
     public static bool IsValidPath(string value)
     {
         SentinelHelper.ArgumentNull(value, nameof(value));
 
         var format = new Regex(PathPattern);
-        bool match = format.IsMatch(value);
+        var match = format.IsMatch(value);
 
         return match;
     }

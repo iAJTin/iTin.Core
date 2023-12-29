@@ -8,16 +8,16 @@ using iTin.Logging;
 namespace iTin.Core;
 
 /// <summary>
-/// Static class than contains extension methods for objects of type <see cref="T:System.Security.SecureString" />.
+/// Provides extension methods for working with <see cref="SecureString"/> objects.
 /// </summary>
 public static class SecureStringExtensions
 {
     /// <summary>
-    /// Determines whether input secure string is disposed.
+    /// Determines whether the input <see cref="SecureString"/> is disposed.
     /// </summary>
-    /// <param name="target">Input secure string.</param>
+    /// <param name="target">The <see cref="SecureString"/> to check for disposal.</param>
     /// <returns>
-    /// <b>true</b> if input secure string is disposed; Otherwise <b>false</b>.
+    /// <see langword="true"/> if the <see cref="SecureString"/> is disposed; otherwise, <see langword="false"/>.
     /// </returns>
     public static bool Disposed(this SecureString target)
     {
@@ -44,11 +44,12 @@ public static class SecureStringExtensions
     }
 
     /// <summary>
-    /// Returns the value stored in the specified secure string
+    /// Returns the value stored in the specified <see cref="SecureString"/>.
     /// </summary>
-    /// <param name="target">Input secure string.</param>
+    /// <param name="target">The <see cref="SecureString"/> from which to retrieve the value.</param>
     /// <returns>
-    /// A <see cref="T:System.String"/> which contains stored value into secure string.
+    /// The decrypted string value stored in the <see cref="SecureString"/>.<b/>
+    /// Returns <see langword="null"/> if the <see cref="SecureString"/> is disposed.
     /// </returns>
     public static string Value(this SecureString target)
     {

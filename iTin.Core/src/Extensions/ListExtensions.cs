@@ -8,19 +8,19 @@ using iTin.Logging;
 namespace iTin.Core;
 
 /// <summary>
-/// Static class than contains extension methods for generic List.
-/// </summary> 
+/// Provides extension methods for manipulating lists.
+/// </summary>
 public static class ListExtensions
 {      
     /// <summary>
-    /// Moves specified item to new position
+    /// Moves the specified item to a new position within the list.
     /// </summary>
-    /// <param name="items">Target list</param>
-    /// <param name="item">Item to move</param>
-    /// <param name="newPosition">New position into list</param>
-    /// <typeparam name="T">Element type</typeparam>
+    /// <param name="items">The target list.</param>
+    /// <param name="item">The item to move.</param>
+    /// <param name="newPosition">The new position within the list.</param>
+    /// <typeparam name="T">The type of elements in the list.</typeparam>
     /// <returns>
-    /// Returns the same list with item in new position
+    /// The list with the item in the new position.
     /// </returns>
     public static List<T> MoveElementToPosition<T>(this List<T> items, T item, int newPosition)
     {
@@ -51,13 +51,14 @@ public static class ListExtensions
     }
 
     /// <summary>
-    /// Returns the next item on the list from the specified current
-    /// <para>Will return null if the current is the last</para>
+    /// Returns the next item in the list after the specified current item.
     /// </summary>
-    /// <typeparam name="T"></typeparam>
-    /// <param name="items"></param>
-    /// <param name="current"></param>
-    /// <returns></returns>
+    /// <typeparam name="T">The type of elements in the list.</typeparam>
+    /// <param name="items">The target list.</param>
+    /// <param name="current">The current item.</param>
+    /// <returns>
+    /// The next item in the list or <see langword="null"/> if the current item is the last.
+    /// </returns>
     public static T? GetNext<T>(this List<T> items, T current) where T : struct
     {
         Logger.Instance.Debug("External Call");
@@ -83,13 +84,14 @@ public static class ListExtensions
     }
 
     /// <summary>
-    /// Returns the previous item on the list from the specified current
-    /// <para>Will return null if the current is the first</para>
+    /// Returns the previous item in the list before the specified current item.
     /// </summary>
-    /// <typeparam name="T"></typeparam>
-    /// <param name="items"></param>
-    /// <param name="current"></param>
-    /// <returns></returns>
+    /// <typeparam name="T">The type of elements in the list.</typeparam>
+    /// <param name="items">The target list.</param>
+    /// <param name="current">The current item.</param>
+    /// <returns>
+    /// The previous item in the list or <see langword="null"/> if the current item is the first.
+    /// </returns>
     public static T? GetPrev<T>(this List<T> items, T current) where T : struct
     {
         Logger.Instance.Debug("External Call");
@@ -115,13 +117,14 @@ public static class ListExtensions
     }
 
     /// <summary>
-    /// Returns the next item on the list from the specified current
-    /// <para>Will return null if the current is the last</para>
+    /// Returns the next item in the list after the specified current item.
     /// </summary>
-    /// <typeparam name="T"></typeparam>
-    /// <param name="items"></param>
-    /// <param name="current"></param>
-    /// <returns></returns>
+    /// <typeparam name="T">The type of elements in the list.</typeparam>
+    /// <param name="items">The target list.</param>
+    /// <param name="current">The current item.</param>
+    /// <returns>
+    /// The next item in the list or <see langword="null"/> if the current item is the last.
+    /// </returns>
     public static T GetNextObject<T>(this List<T> items, T current) where T : class
     {
         Logger.Instance.Debug("External Call");
@@ -147,13 +150,14 @@ public static class ListExtensions
     }
 
     /// <summary>
-    /// Returns the previous item on the list from the specified current
-    /// <para>Will return null if the current is the first</para>
+    /// Returns the previous item in the list before the specified current item.
     /// </summary>
-    /// <typeparam name="T"></typeparam>
-    /// <param name="items"></param>
-    /// <param name="current"></param>
-    /// <returns></returns>
+    /// <typeparam name="T">The type of elements in the list.</typeparam>
+    /// <param name="items">The target list.</param>
+    /// <param name="current">The current item.</param>
+    /// <returns>
+    /// The previous item in the list or <see langword="null"/> if the current item is the first.
+    /// </returns>
     public static T GetPrevObject<T>(this List<T> items, T current) where T : class
     {
         Logger.Instance.Debug("External Call");
@@ -178,39 +182,38 @@ public static class ListExtensions
     }
 
     /// <summary>
-    /// Returns a valid index to use in this List.
+    /// Returns a valid index to use in the specified list.
     /// </summary>
-    /// <typeparam name="T">Type element</typeparam>
-    /// <param name="items">Target list</param>
-    /// <param name="index">Reference index</param>
+    /// <typeparam name="T">Type element.</typeparam>
+    /// <param name="items">Target list.</param>
+    /// <param name="index">Reference index.</param>
     /// <returns>
-    /// A valid index.
+    /// A valid index within the list.
     /// </returns>
-    public static int GetValidIndex<T>(this List<T> items, int index) 
-        => Math.Max(0, Math.Min(index, items.Count - 1));
+    public static int GetValidIndex<T>(this List<T> items, int index) => Math.Max(0, Math.Min(index, items.Count - 1));
 
     /// <summary>
-    /// Determines if specified value is a valid index in list
+    /// Determines if the specified value is a valid index in the list.
     /// </summary>
-    /// <typeparam name="T">Type element</typeparam>
-    /// <param name="items">Target list</param>
-    /// <param name="index">Value to test</param>
+    /// <typeparam name="T">Type element.</typeparam>
+    /// <param name="items">Target list.</param>
+    /// <param name="index">Value to test.</param>
     /// <returns>
-    /// <b>true</b> if is a valid index; otherwise <b>false</b>.
+    /// <see langword="true"/> if it's a valid index; otherwise, <see langword="false"/>.
     /// </returns>
-    public static bool IsValidIndex<T>(this IList<T> items, int index) =>
-        items != null && 
-        index >= 0 && 
-        index < items.Count;
+    public static bool IsValidIndex<T>(this IList<T> items, int index) => items != null && index >= 0 && index < items.Count;
 
     /// <summary>
-    /// Try returns item in specified index. If index is not valid value is <b>null</b> (<b>Nothing</b> in Visual Basic)
+    /// Try returns the item at the specified index. 
+    /// If the index is not valid, the value is set to <see langword="null"/> or default value.
     /// </summary>
-    /// <typeparam name="T">Type element</typeparam>
-    /// <param name="items">Target list</param>
-    /// <param name="index">Reference index</param>
-    /// <param name="value">Item</param>
-    /// <returns></returns>
+    /// <typeparam name="T">Type element.</typeparam>
+    /// <param name="items">Target list.</param>
+    /// <param name="index">Reference index.</param>
+    /// <param name="value">Item.</param>
+    /// <returns>
+    /// <see langword="true"/> if the index is valid; otherwise, <see langword="false"/>.
+    /// </returns>
     public static bool TryGetValue<T>(this List<T> items, int index, ref T value)
     {
         if (!IsValidIndex(items, index))

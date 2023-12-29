@@ -8,7 +8,7 @@ using iTin.Logging;
 namespace iTin.Core;
 
 /// <summary>
-/// Static class than contains extension methods for <see cref="byte"/> structure, <see cref="int"/> structure,
+/// Provides extension methods related to <see cref="byte"/> structure, <see cref="int"/> structure,
 /// <see cref="uint"/> structure, <see cref="long"/> structure, <see cref="ulong"/> structure,
 /// <see cref="short"/> structure and <see cref="ushort"/> structure.
 /// </summary> 
@@ -22,7 +22,7 @@ public static class NumberExtensions
     /// <param name="value">Reference value.</param>
     /// <param name="bit">Bit to check.</param>
     /// <returns>
-    /// <b>true</b> if specified <paramref name="bit" /> is enabled; otherwise, <b>false</b>.
+    /// <see langword="true"/> if specified <paramref name="bit" /> is enabled; otherwise, <see langword="false"/>.
     /// </returns> 
     public static bool CheckBit(this byte value, Bits bit)
     {
@@ -48,7 +48,7 @@ public static class NumberExtensions
     /// <param name="value">Reference value.</param>
     /// <param name="bit">Bit to check.</param>
     /// <returns>
-    /// <b>true</b> if bit specified in <paramref name="bit" /> parameter is enabled; otherwise, <b>false</b>.
+    /// <see langword="true"/> if bit specified in <paramref name="bit" /> parameter is enabled; otherwise, <see langword="false"/>.
     /// </returns> 
     public static bool CheckBit(this byte value, byte bit)
     {
@@ -207,7 +207,7 @@ public static class NumberExtensions
     /// <param name="value">Reference value.</param>
     /// <param name="bit">Bit to check.</param>
     /// <returns>
-    /// <b>true</b> if specified <paramref name="bit" /> is enabled; otherwise, <b>false</b>.
+    /// <see langword="true"/> if specified <paramref name="bit" /> is enabled; otherwise, <see langword="false"/>.
     /// </returns> 
     public static bool CheckBit(this int value, Bits bit)
     {
@@ -223,7 +223,7 @@ public static class NumberExtensions
     /// <param name="value">Reference value.</param>
     /// <param name="bit">Bit to check.</param>
     /// <returns>
-    /// <b>true</b> if bit specified in <paramref name="bit" /> parameter is enabled; otherwise, <b>false</b>.
+    /// <see langword="true"/> if bit specified in <paramref name="bit" /> parameter is enabled; otherwise, <see langword="false"/>.
     /// </returns> 
     public static bool CheckBit(this int value, byte bit)
     {
@@ -341,7 +341,7 @@ public static class NumberExtensions
     /// <param name="value">Reference value.</param>
     /// <param name="bit">Bit to check.</param>
     /// <returns>
-    /// <b>true</b> if specified <paramref name="bit" /> is enabled; otherwise, <b>false</b>.
+    /// <see langword="true"/> if specified <paramref name="bit" /> is enabled; otherwise, <see langword="false"/>.
     /// </returns> 
     public static bool CheckBit(this long value, Bits bit)
     {
@@ -357,7 +357,7 @@ public static class NumberExtensions
     /// <param name="value">Reference value.</param>
     /// <param name="bit">Bit to check.</param>
     /// <returns>
-    /// <b>true</b> if bit specified in <paramref name="bit" /> parameter is enabled; otherwise, <b>false</b>.
+    /// <see langword="true"/> if bit specified in <paramref name="bit" /> parameter is enabled; otherwise, <see langword="false"/>.
     /// </returns> 
     public static bool CheckBit(this long value, byte bit)
     {
@@ -453,7 +453,7 @@ public static class NumberExtensions
     /// <param name="value">Reference value.</param>
     /// <param name="bit">Bit to check.</param>
     /// <returns>
-    /// <b>true</b> if specified <paramref name="bit" /> is enabled; otherwise, <b>false</b>.
+    /// <see langword="true"/> if specified <paramref name="bit" /> is enabled; otherwise, <see langword="false"/>.
     /// </returns> 
     public static bool CheckBit(this uint value, Bits bit)
     {
@@ -469,7 +469,7 @@ public static class NumberExtensions
     /// <param name="value">Reference value.</param>
     /// <param name="bit">Bit to check.</param>
     /// <returns>
-    /// <b>true</b> if bit specified in <paramref name="bit" /> parameter is enabled; otherwise, <b>false</b>.
+    /// <see langword="true"/> if bit specified in <paramref name="bit" /> parameter is enabled; otherwise, <see langword="false"/>.
     /// </returns> 
     public static bool CheckBit(this uint value, byte bit)
     {
@@ -589,7 +589,7 @@ public static class NumberExtensions
     /// <param name="value">Reference value.</param>
     /// <param name="bit">Bit to check.</param>
     /// <returns>
-    /// <b>true</b> if specified <paramref name="bit" /> is enabled; otherwise, <b>false</b>.
+    /// <see langword="true"/> if specified <paramref name="bit" /> is enabled; otherwise, <see langword="false"/>.
     /// </returns> 
     public static bool CheckBit(this ulong value, Bits bit)
     {
@@ -605,7 +605,7 @@ public static class NumberExtensions
     /// <param name="value">Reference value.</param>
     /// <param name="bit">Bit to check.</param>
     /// <returns>
-    /// <b>true</b> if bit specified in <paramref name="bit" /> parameter is enabled; otherwise, <b>false</b>.
+    /// <see langword="true"/> if bit specified in <paramref name="bit" /> parameter is enabled; otherwise, <see langword="false"/>.
     /// </returns> 
     public static bool CheckBit(this ulong value, byte bit)
     {
@@ -698,7 +698,7 @@ public static class NumberExtensions
     /// <param name="value">Reference value.</param>
     /// <param name="bit">Bit to check.</param>
     /// <returns>
-    /// <b>true</b> if specified <paramref name="bit" /> is enabled; otherwise, <b>false</b>.
+    /// <see langword="true"/> if specified <paramref name="bit" /> is enabled; otherwise, <see langword="false"/>.
     /// </returns> 
     public static bool CheckBit(this short value, Bits bit)
     {
@@ -724,7 +724,7 @@ public static class NumberExtensions
     /// <param name="value">Reference value.</param>
     /// <param name="bit">Bit to check.</param>
     /// <returns>
-    /// <b>true</b> if bit specified in <paramref name="bit" /> parameter is enabled; otherwise, <b>false</b>.
+    /// <see langword="true"/> if bit specified in <paramref name="bit" /> parameter is enabled; otherwise, <see langword="false"/>.
     /// </returns> 
     public static bool CheckBit(this short value, byte bit)
     {
@@ -884,7 +884,7 @@ public static class NumberExtensions
     /// <param name="value">Reference value.</param>
     /// <param name="bit">Bit to check.</param>
     /// <returns>
-    /// <b>true</b> if specified <paramref name="bit" /> is enabled; otherwise, <b>false</b>.
+    /// <see langword="true"/> if specified <paramref name="bit" /> is enabled; otherwise, <see langword="false"/>.
     /// </returns> 
     public static bool CheckBit(this ushort value, Bits bit)
     {
@@ -910,7 +910,7 @@ public static class NumberExtensions
     /// <param name="value">Reference value.</param>
     /// <param name="bit">Bit to check.</param>
     /// <returns>
-    /// <b>true</b> if bit specified in <paramref name="bit" /> parameter is enabled; otherwise, <b>false</b>.
+    /// <see langword="true"/> if bit specified in <paramref name="bit" /> parameter is enabled; otherwise, <see langword="false"/>.
     /// </returns> 
     public static bool CheckBit(this ushort value, byte bit)
     {

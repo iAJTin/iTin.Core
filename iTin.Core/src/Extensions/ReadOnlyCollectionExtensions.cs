@@ -8,17 +8,17 @@ using iTin.Core.Helpers;
 namespace iTin.Core;
 
 /// <summary>
-/// Static class than contains extension methods for objects <see cref="T:System.Collections.ObjectModel.ReadOnlyCollection{T}" /> of type <see cref="T:System.Byte" />.
-/// </summary> 
+/// Provides extension methods for working with <see cref="ReadOnlyCollection{T}"/> of bytes.
+/// </summary>
 public static class ReadOnlyCollectionExtensions
 {
     /// <summary>
-    /// Gets a <b>Double Word</b> from this array of bytes.
+    /// Gets a 32-bit value (double word) from the specified position in the byte collection.
     /// </summary>
-    /// <param name="data">Target data.</param>
-    /// <param name="start">Start byte.</param>
+    /// <param name="data">The byte collection.</param>
+    /// <param name="start">The starting index for the double word.</param>
     /// <returns>
-    /// A <see cref="T:System.Int32" /> containing the value.
+    /// A 32-bit value obtained from the byte collection.
     /// </returns>
     public static int GetDoubleWord(this ReadOnlyCollection<byte> data, byte start)
     {
@@ -28,12 +28,12 @@ public static class ReadOnlyCollectionExtensions
     }
 
     /// <summary>
-    /// Returns a <b>Quadriple Word</b> from this array of bytes starting in <paramref name="start"/>.
+    /// Gets a 64-bit value (quadruple word) from the specified position in the byte collection.
     /// </summary>
-    /// <param name="data">Target data.</param>
-    /// <param name="start">Start byte.</param>
+    /// <param name="data">The byte collection.</param>
+    /// <param name="start">The starting index for the quadruple word.</param>
     /// <returns>
-    /// A <see cref="T:System.Int64" /> containing the value.
+    /// A 64-bit value obtained from the byte collection.
     /// </returns>
     public static long GetQuadrupleWord(this ReadOnlyCollection<byte> data, byte start)
     {
@@ -43,12 +43,13 @@ public static class ReadOnlyCollectionExtensions
     }
 
     /// <summary>
-    /// Gets a <b>Word</b> from this array of bytes. ( { a, b, n, n + 1, ...}, n ) => (n + 1, n)
+    /// Gets a 16-bit value (word) from the specified position in the byte collection.<br/>
+    /// ( { a, b, n, n + 1, ...}, n ) => (n + 1, n)
     /// </summary>
-    /// <param name="data">Target data.</param>
-    /// <param name="start">Start byte.</param>
+    /// <param name="data">The byte collection.</param>
+    /// <param name="start">The starting index for the word.</param>
     /// <returns>
-    /// A <see cref="T:System.Int32" /> containing the value.
+    /// A 16-bit value obtained from the byte collection.
     /// </returns>
     public static int GetWord(this ReadOnlyCollection<byte> data, byte start)
     {
@@ -58,19 +59,19 @@ public static class ReadOnlyCollectionExtensions
     }
 
     /// <summary>
-    /// Returns a byte array as a result of extracting n bytes of the specified array from a position.
+    /// Extracts a sub-array of bytes from the specified position in the byte collection.
     /// </summary>
-    /// <param name="data">Target data.</param>
-    /// <param name="start">Start byte</param>
-    /// <param name="lenght">Lenght to extract</param>
+    /// <param name="data">The byte collection.</param>
+    /// <param name="start">The starting index for the extraction.</param>
+    /// <param name="length">The length of the sub-array to extract.</param>
     /// <returns>
-    /// A <see cref="T:T:System.Collections.ObjectModel.ReadOnlyCollection{byte}" /> that contains the result.
+    /// A new ReadOnlyCollection of byte containing the extracted sub-array.
     /// </returns>
-    public static ReadOnlyCollection<byte> Extract(this ReadOnlyCollection<byte> data, byte start, byte lenght)
+    public static ReadOnlyCollection<byte> Extract(this ReadOnlyCollection<byte> data, byte start, byte length)
     {
         var dataArray = data.ToArray();
-        var subArray = new byte[lenght];
-        Array.Copy(dataArray, start, subArray, 0x00, lenght);
+        var subArray = new byte[length];
+        Array.Copy(dataArray, start, subArray, 0x00, length);
 
         return new ReadOnlyCollection<byte>((byte[])subArray.Clone());
     }

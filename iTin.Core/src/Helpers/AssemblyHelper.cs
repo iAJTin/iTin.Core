@@ -7,16 +7,19 @@ using iTin.Logging;
 namespace iTin.Core.Helpers;
 
 /// <summary>
-/// Static class which contains methods for retrieve <see cref="T:System.Assembly" /> information.
+/// A helper class providing methods related to the current assembly.
 /// </summary>
 public static class AssemblyHelper
 {
     /// <summary>
-    /// Returns <see cref="T:System.Uri" /> that contains full path to current assembly.
+    /// Returns a <see cref="Uri"/> that contains the full path to the current assembly.
     /// </summary>
     /// <returns>
-    /// A <see cref="T:System.Uri" /> that contains full path to current assembly.
+    /// A <see cref="Uri"/> that contains the full path to the current assembly.
     /// </returns>
+    /// <remarks>
+    /// This method retrieves the full path to the assembly of the <see cref="AssemblyHelper"/> class.
+    /// </remarks>
     public static Uri GetFullAssemblyUri()
     {
         Logger.Instance.Debug("");

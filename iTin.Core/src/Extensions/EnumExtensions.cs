@@ -13,18 +13,23 @@ using iTin.Logging;
 namespace iTin.Core;
 
 /// <summary>
-/// Static class than contains extension methods for items of type <see cref="T:System.Enum" />.
+/// Provides extension methods for working with enums.
 /// </summary>
 public static class EnumExtensions
 {
     /// <summary>
-    /// Converts a value of the specified enumerated type into another enumerated type of type <b>T</b>.
+    /// Converts a value of the specified enumerated type into another enumerated type of type <typeparamref name="T"/>.
     /// </summary>
-    /// <typeparam name="T">Destination enum type</typeparam>
+    /// <typeparam name="T">Destination enum type.</typeparam>
     /// <param name="target">Value to convert.</param>
     /// <returns>
-    /// converted value.
+    /// The converted value of type <typeparamref name="T"/>.
+    /// If the conversion is successful, the converted value is returned; otherwise, the default value of <typeparamref name="T"/>.
     /// </returns>
+    /// <remarks>
+    /// This method uses the index of the enum value to perform the conversion. If the index is not valid for the destination enum type,
+    /// the default value of the destination enum type is returned.
+    /// </remarks>
     public static T AsEnumType<T>(this Enum target) where T : struct
     {
         Logger.Instance.Debug("");
@@ -48,13 +53,16 @@ public static class EnumExtensions
     }
 
     /// <summary>
-    /// Converts a set values of the specified enumerated type into another enumerated type of type <b>T</b>.
+    /// Converts a set of values of the specified enumerated type into another enumerated type of type <typeparamref name="T"/>.
     /// </summary>
-    /// <typeparam name="T">Destination enum type</typeparam>
+    /// <typeparam name="T">Destination enum type.</typeparam>
     /// <param name="collection">Values to convert.</param>
     /// <returns>
-    /// converted values.
+    /// The converted values of type <typeparamref name="T"/> in an IEnumerable{T} collection.
     /// </returns>
+    /// <remarks>
+    /// This method applies the conversion defined by the AsEnumType method to each element in the input collection.
+    /// </remarks>
     public static IEnumerable<T> AsEnumType<T>(this IEnumerable<Enum> collection) where T : struct
     {
         Logger.Instance.Debug("");
@@ -70,13 +78,17 @@ public static class EnumExtensions
     }
 
     /// <summary>
-    /// Returns the value of attribute of type <see cref="T:iTin.Core.ComponentModel.EnumDescriptionAttribute"/> for this enum value. 
-    /// If this attribute is not defined returns <b>null</b> (<b>Nothing</b> in Visual Basic)
+    /// Returns the value of the attribute of type <see cref="EnumDescriptionAttribute"/> for this enum value.
+    /// If this attribute is not defined, returns <see langword="null"/> (or <c>Nothing</c> in Visual Basic).
     /// </summary>
     /// <param name="value">Target enum value.</param>
     /// <returns>
-    /// A <see cref="T:System.String"/> that contains the value of attribute.
+    /// A <see cref="string"/> that contains the value of the attribute.
     /// </returns>
+    /// <remarks>
+    /// This method looks for a <see cref="EnumDescriptionAttribute"/> on the enum value and returns its description.
+    /// If the attribute is not defined, the method returns <see langword="null"/>.
+    /// </remarks>
     public static string GetDescription(this Enum value)
     {
         Logger.Instance.Debug("");
@@ -117,11 +129,15 @@ public static class EnumExtensions
     /// <summary>
     /// Gets the next enum value. If it is the last item, the first item is returned.
     /// </summary>
-    /// <typeparam name="T">Enumeration type</typeparam>
+    /// <typeparam name="T">Enumeration type.</typeparam>
     /// <param name="value">Target value.</param>
     /// <returns>
-    /// Returns next item of this enumeration. If it is the last item, the first item is returned.
+    /// Returns the next item of this enumeration. If it is the last item, the first item is returned.
     /// </returns>
+    /// <remarks>
+    /// This method retrieves the next item in the enumeration order. If the input value is the last item,
+    /// it wraps around and returns the first item in the enumeration.
+    /// </remarks>
     public static T GetNext<T>(this T value) where T : struct
     {
         Logger.Instance.Debug("");
@@ -146,11 +162,15 @@ public static class EnumExtensions
     /// <summary>
     /// Gets the previous enum value. If it is the first item, the last item is returned.
     /// </summary>
-    /// <typeparam name="T">Enumeration type</typeparam>
+    /// <typeparam name="T">Enumeration type.</typeparam>
     /// <param name="value">Target value.</param>
     /// <returns>
-    /// Returns previous item of this enumeration. If it is the first item, the last item is returned.
+    /// Returns the previous item of this enumeration. If it is the first item, the last item is returned.
     /// </returns>
+    /// <remarks>
+    /// This method retrieves the previous item in the enumeration order. If the input value is the first item,
+    /// it wraps around and returns the last item in the enumeration.
+    /// </remarks>
     public static T GetPrevious<T>(this T value) where T : struct
     {
         Logger.Instance.Debug("");

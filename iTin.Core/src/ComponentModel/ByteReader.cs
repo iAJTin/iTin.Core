@@ -12,7 +12,7 @@ using System.Collections.Generic;
 namespace iTin.Core.ComponentModel
 {
     /// <summary>
-    /// Class 
+    /// Provides methods to read and retrieve values from a byte array.
     /// </summary>
     public class ByteReader
     {

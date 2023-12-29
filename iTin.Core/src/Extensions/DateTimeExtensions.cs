@@ -13,16 +13,16 @@ using iTin.Logging;
 namespace iTin.Core;
 
 /// <summary>
-/// Static class than contains extension methods for objects of type <see cref="T:System.DateTime" />.
-/// </summary> 
+/// Provides extension methods for <see cref="DateTime"/>.
+/// </summary>
 public static class DateTimeExtensions
 {
     /// <summary>
-    /// Converts a <see cref="T:System.DateTime" /> object to <b>yyyy-MM-dd HH:mm:ss.fff</b> string format.
+    /// Converts a <see cref="DateTime"/> object to <b>yyyy-MM-dd HH:mm:ss.fff</b> string format.
     /// </summary>
     /// <param name="target">Target datetime.</param>
     /// <returns>
-    /// A <see cref="T:System.String" /> that contains the expected format.
+    /// A <see cref="string"/> that contains the expected format.
     /// </returns>
     public static string ToLongDataBaseFormatAsDateTime(this DateTime target)
     {
@@ -39,11 +39,11 @@ public static class DateTimeExtensions
     }
 
     /// <summary>
-    /// Converts a <see cref="T:System.DateTime" /> object to <b>yyyy-MM-dd HH:mm:ss</b> string format.
+    /// Converts a <see cref="DateTime"/> object to <b>yyyy-MM-dd HH:mm:ss</b> string format.
     /// </summary>
     /// <param name="target">Target datetime.</param>
     /// <returns>
-    /// A <see cref="T:System.String" /> that contains the expected format.
+    /// A <see cref="string"/> that contains the expected format.
     /// </returns>
     public static string ToShortDataBaseFormatAsDateTime(this DateTime target)
     {
@@ -60,11 +60,11 @@ public static class DateTimeExtensions
     }
 
     /// <summary>
-    /// Converts a <see cref="T:System.DateTime" /> object to <b>yyyyMMddHHmmss.fff</b> string format.
+    /// Converts a <see cref="DateTime"/> object to <b>yyyyMMddHHmmss.fff</b> string format.
     /// </summary>
     /// <param name="target">Target datetime.</param>
     /// <returns>
-    /// A <see cref="T:System.String" /> that contains the expected format.
+    /// A <see cref="string"/> that contains the expected format.
     /// </returns>
     public static string ToLongDataBaseFormatAsString(this DateTime target)
     {
@@ -81,11 +81,11 @@ public static class DateTimeExtensions
     }
 
     /// <summary>
-    /// Converts a <see cref="T:System.DateTime" /> object into <b>yyyyMMddHHmmss</b> string.
+    /// Converts a <see cref="DateTime"/> object into <b>yyyyMMddHHmmss</b> string.
     /// </summary>
     /// <param name="target">Target datetime.</param>
     /// <returns>
-    /// A <see cref="T:System.String" /> that contains the expected format.
+    /// A <see cref="string"/> that contains the expected format.
     /// </returns>
     public static string ToShortDataBaseFormatAsString(this DateTime target)
     {
@@ -102,11 +102,11 @@ public static class DateTimeExtensions
     }
 
     /// <summary>
-    /// Converts a <see cref="T:System.DateTime" /> object into <b>dd/MM/yyyy</b> string.
+    /// Converts a <see cref="DateTime"/> object into <b>dd/MM/yyyy</b> string.
     /// </summary>
     /// <param name="target">Target datetime.</param>
     /// <returns>
-    /// A <see cref="T:System.String" /> that contains the expected format.
+    /// A <see cref="string"/> that contains the expected format.
     /// </returns>
     public static string ToShortUiFormatAsString(this DateTime target)
     {
@@ -123,11 +123,11 @@ public static class DateTimeExtensions
     }
 
     /// <summary>
-    /// Converts a <see cref="T:System.DateTime" /> object into <b>dd/MM/yyyy HH'h'</b> string.
+    /// Converts a <see cref="DateTime"/> object into <b>dd/MM/yyyy HH'h'</b> string.
     /// </summary>
     /// <param name="target">Target datetime.</param>
     /// <returns>
-    /// A <see cref="T:System.String" /> that contains the expected format.
+    /// A <see cref="string"/> that contains the expected format.
     /// </returns>
     public static string ToShortUiFormatWithShortTimeAsString(this DateTime target)
     {
@@ -144,11 +144,11 @@ public static class DateTimeExtensions
     }
 
     /// <summary>
-    /// Converts a <see cref="T:System.DateTime" /> object into <b>dd/MM/yyyy HH:mm:ss</b> string.
+    /// Converts a <see cref="DateTime"/> object into <b>dd/MM/yyyy HH:mm:ss</b> string.
     /// </summary>
     /// <param name="target">Target datetime.</param>
     /// <returns>
-    /// A <see cref="T:System.String" /> that contains the expected format.
+    /// A <see cref="string"/> that contains the expected format.
     /// </returns>
     public static string ToLongUiFormatAsString(this DateTime target)
     {
@@ -165,11 +165,11 @@ public static class DateTimeExtensions
     }
 
     /// <summary>
-    /// Converts time of the <see cref="T:System.DateTime" /> object with format <b>HH:mm:ss</b>.
+    /// Converts time of the <see cref="DateTime"/> object with format <b>HH:mm:ss</b>.
     /// </summary>
     /// <param name="target">Target datetime.</param>
     /// <returns>
-    /// A <see cref="T:System.String" /> that contains time of target datetime.
+    /// A <see cref="string"/> that contains time of target datetime.
     /// </returns>
     public static string ToTimeSpanUiAsString(this DateTime target)
     {
@@ -186,11 +186,11 @@ public static class DateTimeExtensions
     }
 
     /// <summary>
-    /// Returns only date part of target <see cref="T:System.DateTime"/>.
+    /// Returns only the date part of the specified <see cref="DateTime"/> value.
     /// </summary>
-    /// <param name="target">target datetime</param>
+    /// <param name="target">The <see cref="DateTime"/> value to extract the date part from.</param>
     /// <returns>
-    /// Returns only date part of target datetime
+    /// A string representing only the date part of the specified <see cref="DateTime"/> value.
     /// </returns>
     public static string DatePartOnly(this DateTime target)
     {
@@ -209,10 +209,32 @@ public static class DateTimeExtensions
     }
 
     /// <summary>
-    /// 
+    /// Creates a new a <see cref="DateTime"/> object with the first day of the month.
     /// </summary>
-    /// <param name="target"></param>
+    /// <param name="value">The <see cref="DateTime"/> to get the year and month.</param>
     /// <returns>
+    /// A <see cref="DateTime"/> representing the first day of the month.
+    /// </returns>
+    public static DateTime FirstDayInMonth(this DateTime value)
+        => new(value.Year, value.Month, 1, 0, 0, 0, DateTimeKind.Utc);
+
+    /// <summary>
+    /// Creates a new a <see cref="DateTime"/> object with the last day of the month.
+    /// </summary>
+    /// <param name="value">The <see cref="DateTime"/> to get the year and month.</param>
+    /// <returns>
+    /// A <see cref="DateTime"/> representing the last day of the month.
+    /// </returns>
+    public static DateTime LastDayInMonth(this DateTime value)
+        => value.FirstDayInMonth().AddMonths(1).AddDays(-1);
+
+    /// <summary>
+    /// Splits the specified <see cref="DateTime"/> value into date and time parts.
+    /// </summary>
+    /// <param name="target">The <see cref="DateTime"/> value to split.</param>
+    /// <returns>
+    /// An array containing the date and time parts of the specified <see cref="DateTime"/> value.<br/>
+    /// The date and time parts are represented as strings.
     /// </returns>
     public static string[] Split(this DateTime target)
     {
@@ -220,33 +242,49 @@ public static class DateTimeExtensions
 
 #if NETSTANDARD2_1 || NET5_0_OR_GREATER
 
-        return databaseFullDate.SplitString(new[] {' '}).AsEnumerable().ToArray();
+            return databaseFullDate.SplitString(new[] {' '}).AsEnumerable().ToArray();
 #else
-            return databaseFullDate.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+        return databaseFullDate.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
 #endif
     }
 
     /// <summary>
-    /// Returns only time part of target <see cref="T:System.DateTime"/>.
+    /// Extracts the time part (hour, minute, and second) from the specified <see cref="DateTime"/> value.
     /// </summary>
-    /// <param name="target">target datetime</param>
+    /// <param name="target">The <see cref="DateTime"/> value from which to extract the time part.</param>
     /// <returns>
-    /// Returns only time part of target datetime
+    /// A string representation of the time part (hour:minute:second) of the specified <see cref="DateTime"/> value.<br/>
+    /// If the original <see cref="DateTime"/> value has no time part, "0:00:00" is returned.
     /// </returns>
     public static string TimePartOnly(this DateTime target)
     {
-        Logger.Instance.Debug("");
-        Logger.Instance.Debug($" Assembly: {typeof(DateTimeExtensions).Assembly.GetName().Name}, v{typeof(DateTimeExtensions).Assembly.GetName().Version}, Namespace: {typeof(DateTimeExtensions).Namespace}, Class: {nameof(DateTimeExtensions)}");
-        Logger.Instance.Debug($" Returns only time part of target {typeof(DateTime)}");
-        Logger.Instance.Debug($" > Signature: ({typeof(string)}) DatePartOnly(this {typeof(DateTime)})");
-        Logger.Instance.Debug($"   > target: {target.ToString(CultureInfo.CurrentCulture)}");
-
         var dateAndTime = target.Split();
-        var existTimePart = dateAndTime.Length == 2;
+        var existTimePart = dateAndTime.Length >= 2;
 
-        return
-            existTimePart
+        if (existTimePart)
+        {
+            return dateAndTime.Length == 2
                 ? dateAndTime[1]
-                : "0:00:00";
+                : $"{dateAndTime[1]} {dateAndTime[2]}";
+        }
+
+        return "0:00:00";
     }
+
+    /// <summary>
+    /// Determines whether the specified <see cref="DateTime"/> value is between the provided start and end <see cref="DateTime"/> values.
+    /// </summary>
+    /// <param name="timeToCompare">The <see cref="DateTime"/> value to check for being between <paramref name="beginTime"/> and <paramref name="endTime"/>.</param>
+    /// <param name="beginTime">The start <see cref="DateTime"/> value of the range (inclusive).</param>
+    /// <param name="endTime">The end <see cref="DateTime"/> value of the range (exclusive).</param>
+    /// <returns>
+    /// <see langword="true"/> if the specified <see cref="DateTime"/> value is between <paramref name="beginTime"/> and <paramref name="endTime"/>; otherwise, <see langword="false"/>.
+    /// </returns>
+    /// <exception cref="ArgumentException">Thrown when <paramref name="beginTime"/> is greater than or equal to <paramref name="endTime"/>.</exception>
+    public static bool IsBetween(this DateTime timeToCompare, DateTime beginTime, DateTime endTime)
+    {
+        return timeToCompare >= beginTime
+               && timeToCompare <= endTime;
+    }
+
 }

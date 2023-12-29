@@ -7,14 +7,20 @@ using System.Threading.Tasks;
 namespace iTin.Core.Helpers;
 
 /// <summary>
-/// Static class which contains methods for retrieve <see cref="T:System.Assembly" /> information.
+/// A helper class providing methods for running asynchronous tasks synchronously on the current thread.
 /// </summary>
 public static class AsyncHelper
 {
     /// <summary>
-    /// Execute's an async Task{T} method which has a void return value synchronously
+    /// Runs an asynchronous task synchronously on the current thread.
     /// </summary>
-    /// <param name="task">Task{T} method to execute</param>
+    /// <param name="task">The asynchronous task to run synchronously.</param>
+    /// <remarks>
+    /// This method is intended for scenarios where synchronous execution of an asynchronous task is necessary,
+    /// such as in console applications, entry points, or Main methods.
+    /// </remarks>
+    /// <exception cref="ArgumentNullException">Thrown when the input task is <see langword="null"/>.</exception>
+    /// <exception cref="Exception">Thrown if the asynchronous task encounters an exception during execution.</exception>
     public static void RunSync(Func<Task> task)
     {
         var oldContext = SynchronizationContext.Current;
@@ -42,11 +48,19 @@ public static class AsyncHelper
     }
 
     /// <summary>
-    /// Execute's an async Task{T} method which has a T return type synchronously
+    /// Runs an asynchronous task synchronously on the current thread and returns the result.
     /// </summary>
-    /// <typeparam name="T">Return Type</typeparam>
-    /// <param name="task">Task{T} method to execute</param>
-    /// <returns></returns>
+    /// <typeparam name="T">The type of the result returned by the asynchronous task.</typeparam>
+    /// <param name="task">The asynchronous task to run synchronously.</param>
+    /// <returns>
+    /// The result of the asynchronous task.
+    /// </returns>
+    /// <remarks>
+    /// This method is intended for scenarios where synchronous execution of an asynchronous task is necessary,
+    /// such as in console applications, entry points, or Main methods.
+    /// </remarks>
+    /// <exception cref="ArgumentNullException">Thrown when the input task is <see langword="null"/>.</exception>
+    /// <exception cref="Exception">Thrown if the asynchronous task encounters an exception during execution.</exception>
     public static T RunSync<T>(Func<Task<T>> task)
     {
         var oldContext = SynchronizationContext.Current;

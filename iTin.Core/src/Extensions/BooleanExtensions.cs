@@ -4,17 +4,17 @@ using iTin.Logging;
 namespace iTin.Core;
 
 /// <summary>
-/// Static class than contains extension methods for objects of type <see cref="T:System.Boolean" />.
-/// </summary> 
+/// Provides extension methods related to <see cref="bool"/> values.
+/// </summary>
 public static class BooleanExtensions
 {
     /// <summary>
-    /// <para>Convert the value specified in its binary equivalent value.</para>
-    /// <para>Returns <b>1</b> for <b>true</b>; otherwise <b>0</b> </para>
+    /// Converts the specified boolean value to its binary equivalent value.
     /// </summary>
-    /// <param name="value">The value to convert.</param>
+    /// <param name="value">The boolean value to convert.</param>
     /// <returns>
-    /// Returns a <see cref="T:System.Byte" /> value that represents specified value. 
+    /// A <see cref="byte"/> representing the binary equivalent of the boolean value.<br/>
+    /// Returns 1 if the input is <see langword="true"/>, and 0 if the input is <see langword="false"/>.
     /// </returns>
     public static byte ToBinaryNotation(this bool value)
     {

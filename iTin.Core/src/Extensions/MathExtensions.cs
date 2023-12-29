@@ -4,22 +4,22 @@ using iTin.Logging;
 namespace iTin.Core.Helpers;
 
 /// <summary>
-/// Static class <b>Math</b> provides constants and static methods for conversion operations and other common mathematical functions.
+/// Provides extension methods for conversion operations and other common mathematical functions.
 /// </summary>
 public static class MathExtensions
 {
     /// <summary>
-    /// Gets a value indicating whether the parametre is odd.
+    /// Gets a value indicating whether the parameter is odd.
     /// </summary>
-    /// <param name="value">Value to check.</param>
+    /// <param name="value">The integer value to check.</param>
     /// <returns>
-    /// <b>true</b> if value is odd; otherwise <b>false</b>.
+    /// <see langword="true"/> if the value is odd; otherwise, <see langword="false"/>.
     /// </returns>
     public static bool IsOdd(this int value)
     {
         Logger.Instance.Debug("");
         Logger.Instance.Debug($" Assembly: {typeof(MathExtensions).Assembly.GetName().Name}, v{typeof(MathExtensions).Assembly.GetName().Version}, Namespace: {typeof(MathExtensions).Namespace}, Class: {nameof(MathExtensions)}");
-        Logger.Instance.Debug(" Gets a value indicating whether the parametre is odd");
+        Logger.Instance.Debug(" Gets a value indicating whether the parameter is odd");
         Logger.Instance.Debug($" > Signature: ({typeof(bool)}) IsOdd(this {typeof(int)})");
         Logger.Instance.Debug($"   > value: {value}");
 
@@ -30,17 +30,17 @@ public static class MathExtensions
     }
 
     /// <summary>
-    /// Gets a value indicating whether the parametre is odd.
+    /// Gets a value indicating whether the parameter is odd.
     /// </summary>
-    /// <param name="value">Value to check.</param>
+    /// <param name="value">The unsigned integer value to check.</param>
     /// <returns>
-    /// <b>true</b> if value is odd; otherwise <b>false</b>.
+    /// <see langword="true"/> if the value is odd; otherwise, <see langword="false"/>.
     /// </returns>
     public static bool IsOdd(this uint value)
     {
         Logger.Instance.Debug("");
         Logger.Instance.Debug($" Assembly: {typeof(MathExtensions).Assembly.GetName().Name}, v{typeof(MathExtensions).Assembly.GetName().Version}, Namespace: {typeof(MathExtensions).Namespace}, Class: {nameof(MathExtensions)}");
-        Logger.Instance.Debug(" Gets a value indicating whether the parametre is odd");
+        Logger.Instance.Debug(" Gets a value indicating whether the parameter is odd");
         Logger.Instance.Debug($" > Signature: ({typeof(bool)}) IsOdd(this {typeof(uint)})");
         Logger.Instance.Debug($"   > value: {value}");
 
@@ -50,13 +50,12 @@ public static class MathExtensions
         return result;
     }
 
-
     /// <summary>
-    /// Gets a value indicating whether the parametre is odd.
+    /// Gets a value indicating whether the parameter is odd.
     /// </summary>
-    /// <param name="value">Value to check.</param>
+    /// <param name="value">The short integer value to check.</param>
     /// <returns>
-    /// <b>true</b> if value is odd; otherwise <b>false</b>.
+    /// <see langword="true"/> if the value is odd; otherwise, <see langword="false"/>.
     /// </returns>
     public static bool IsOdd(this short value)
     {
@@ -73,11 +72,11 @@ public static class MathExtensions
     }
 
     /// <summary>
-    /// Gets a value indicating whether the parametre is odd.
+    /// Gets a value indicating whether the parameter is odd.
     /// </summary>
-    /// <param name="value">Value to check.</param>
+    /// <param name="value">The unsigned short integer value to check.</param>
     /// <returns>
-    /// <b>true</b> if value is odd; otherwise <b>false</b>.
+    /// <see langword="true"/> if the value is odd; otherwise, <see langword="false"/>.
     /// </returns>
     public static bool IsOdd(this ushort value)
     {
@@ -94,11 +93,11 @@ public static class MathExtensions
     }
 
     /// <summary>
-    /// Gets a value indicating whether the parametre is odd.
+    /// Gets a value indicating whether the parameter is odd.
     /// </summary>
-    /// <param name="value">Value to check.</param>
+    /// <param name="value">The long value to check.</param>
     /// <returns>
-    /// <b>true</b> if value is odd; otherwise <b>false</b>.
+    /// <see langword="true"/> if the value is odd; otherwise, <see langword="false"/>.
     /// </returns>
     public static bool IsOdd(this long value)
     {
@@ -115,11 +114,11 @@ public static class MathExtensions
     }
 
     /// <summary>
-    /// Gets a value indicating whether the parametre is odd.
+    /// Gets a value indicating whether the parameter is odd.
     /// </summary>
-    /// <param name="value">Value to check.</param>
+    /// <param name="value">The unsigned long integer value to check.</param>
     /// <returns>
-    /// <b>true</b> if value is odd; otherwise <b>false</b>.
+    /// <see langword="true"/> if the value is odd; otherwise, <see langword="false"/>.
     /// </returns>
     public static bool IsOdd(this ulong value)
     {
