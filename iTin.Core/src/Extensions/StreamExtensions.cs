@@ -1,4 +1,10 @@
 ﻿
+#if NETSTANDARD2_1 || NET5_0_OR_GREATER
+
+using System;
+
+#endif
+
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;

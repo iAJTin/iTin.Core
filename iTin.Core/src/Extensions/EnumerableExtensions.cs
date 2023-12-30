@@ -376,7 +376,7 @@ public static class EnumerableExtensions
     /// <param name="secondKeySelector">A function to extract the second key from each object.</param>
     /// <param name="aggregate">A function to aggregate values for each combination of first and second keys.</param>
     /// <returns>
-    /// A <see cref="Dictionary{TFirstKey, Dictionary{TSecondKey, TValue}}"/> representing the pivoted collection.
+    /// A <strong>Dictionary{TFirstKey, Dictionary{TSecondKey, TValue}}</strong> representing the pivoted collection.
     /// </returns>
     /// <remarks>
     /// This method pivots the collection of objects based on two key selectors and an aggregation function.<br/>
