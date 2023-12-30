@@ -34,7 +34,7 @@ public static class TimeSpanExtensions
         Logger.Instance.Debug($" > Signature: ({typeof(TimeSpan)}) TotalTime(this {typeof(IEnumerable<TimeSpan>)})");
         Logger.Instance.Debug($"   > durations: {durations.Count()} entries");
 
-        TimeSpan result = new TimeSpan(0, 0, durations.Sum(t => (int)t.TotalSeconds));
+        var result = new TimeSpan(0, 0, durations.Sum(t => (int)t.TotalSeconds));
         Logger.Instance.Debug($" > Output: {result}");
 
         return result;

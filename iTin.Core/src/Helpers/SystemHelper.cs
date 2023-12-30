@@ -108,7 +108,7 @@ public static class SystemHelper
             safeOptions = RunProgramOptions.Default;
         }
 
-        ProcessStartInfo startInfo = new ProcessStartInfo(program, arguments) { UseShellExecute = safeOptions.UseShellExecute };
+        var startInfo = new ProcessStartInfo(program, arguments) { UseShellExecute = safeOptions.UseShellExecute };
         using (Process.Start(startInfo))
         {
             // Nothing to do

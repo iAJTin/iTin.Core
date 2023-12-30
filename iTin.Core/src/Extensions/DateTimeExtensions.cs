@@ -242,9 +242,9 @@ public static class DateTimeExtensions
 
 #if NETSTANDARD2_1 || NET5_0_OR_GREATER
 
-            return databaseFullDate.SplitString(new[] {' '}).AsEnumerable().ToArray();
+            return databaseFullDate.SplitString([' ']).AsEnumerable().ToArray();
 #else
-        return databaseFullDate.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+        return databaseFullDate.Split([' '], StringSplitOptions.RemoveEmptyEntries);
 #endif
     }
 

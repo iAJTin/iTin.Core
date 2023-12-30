@@ -37,7 +37,7 @@ public class NameObjectCollection : NameObjectCollectionBase
     /// <value>
     /// Objeto <see cref="DictionaryEntry"/> que contiene el par clave-valor.
     /// </value>
-    public DictionaryEntry this[int index] => new DictionaryEntry(BaseGetKey(index), BaseGet(index));
+    public DictionaryEntry this[int index] => new(BaseGetKey(index), BaseGet(index));
 
     /// <summary>
     /// Obtiene o establece el <see cref="object"/> asociado con la clave especificada.

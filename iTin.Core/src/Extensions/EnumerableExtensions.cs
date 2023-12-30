@@ -159,7 +159,7 @@ public static class EnumerableExtensions
 
         if (items == null)
         {
-            return Array.Empty<T>().ToList();
+            return [];
         }
 
         var list = items.ToList();

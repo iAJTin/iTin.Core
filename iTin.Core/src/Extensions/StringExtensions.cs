@@ -106,7 +106,7 @@ public static class StringExtensions
                 return false;
         }
 
-        ArgumentException ex = new ArgumentException("Value is not a boolean value.");
+        var ex = new ArgumentException("Value is not a boolean value.");
         Logger.Instance.Error("Value is not a boolean value", ex);
         throw ex;
     }
@@ -408,7 +408,7 @@ public static class StringExtensions
         Logger.Instance.Debug($"   > str: {str}");
         Logger.Instance.Debug($"   > length: {length}");
 
-        string result = string.IsNullOrEmpty(str) ? str : str.Substring(0, length);
+        var result = string.IsNullOrEmpty(str) ? str : str.Substring(0, length);
         Logger.Instance.Debug($" > Output: {result}");
 
         return result;
@@ -467,10 +467,10 @@ public static class StringExtensions
         Logger.Instance.Debug($" > Signature: ({typeof(string)}) Reverse(this {typeof(string)})");
         Logger.Instance.Debug($"   > value: {value}");
 
-        char[] charArray = value.ToCharArray();
+        var charArray = value.ToCharArray();
         Array.Reverse(charArray);
 
-        string result = new string(charArray);
+        var result = new string(charArray);
         Logger.Instance.Debug($" > Output: {result}");
 
         return result;
@@ -668,7 +668,7 @@ public static class StringExtensions
     /// <returns>
     /// An enumerable collection of substrings.
     /// </returns>
-    public static IEnumerable<string> ToListWithSeparator(this string value, char separator) => value.ToListWithSeparator(new[] { separator });
+    public static IEnumerable<string> ToListWithSeparator(this string value, char separator) => value.ToListWithSeparator([separator]);
 
     /// <summary>
     /// Returns a new list of strings by splitting the input string using the specified characters as separators.
@@ -687,12 +687,12 @@ public static class StringExtensions
     {
         Logger.Instance.Debug("");
         Logger.Instance.Debug($" Assembly: {typeof(StringExtensions).Assembly.GetName().Name}, v{typeof(StringExtensions).Assembly.GetName().Version}, Namespace: {typeof(StringExtensions).Namespace}, Class: {nameof(StringExtensions)}");
-        Logger.Instance.Debug(" Returns a new list of strings splitted with specified chars");
+        Logger.Instance.Debug(" Returns a new list of strings split with specified chars");
         Logger.Instance.Debug($" > Signature: ({typeof(IEnumerable<string>)}) ToListWithSeparator(this {typeof(string)}, {typeof(char[])})");
         Logger.Instance.Debug($"   > value: {value}");
         Logger.Instance.Debug($"   > separators: {separators.Length}, [{separators[0]} ...]");
 
-        List<string> result = value.Split(separators, StringSplitOptions.RemoveEmptyEntries).ToList();
+        var result = value.Split(separators, StringSplitOptions.RemoveEmptyEntries).ToList();
         Logger.Instance.Debug($" > Output: {result.Count} elements, [{result[0]} ...]");
 
         return result;
@@ -717,7 +717,7 @@ public static class StringExtensions
         Logger.Instance.Debug($" > Signature: ({typeof(SecureString)}) ToSecureString(this {typeof(string)})");
         Logger.Instance.Debug($"   > text: {text}");
 
-        SecureString secureString = new SecureString();
+        var secureString = new SecureString();
         foreach (var c in text)
         {
             secureString.AppendChar(c);

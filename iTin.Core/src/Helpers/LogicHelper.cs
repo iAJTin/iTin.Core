@@ -152,7 +152,7 @@ public static class LogicHelper
     /// </remarks>
     public static byte[] GetBytes(ulong register)
     {
-        byte[] bytes = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+        byte[] bytes = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 
         bytes[(int)Bytes.Byte00] = (byte)(register & 0xf);
         bytes[(int)Bytes.Byte01] = (byte)((register & 0xf0) >> 4);

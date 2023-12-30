@@ -96,7 +96,7 @@ public static class NativeCompressHelper
             ms.Write(gzBuffer, 4, gzBuffer.Length - 4);
             ms.Position = 0;
 
-            using (GZipStream zip = new GZipStream(ms, CompressionMode.Decompress))
+            using (var zip = new GZipStream(ms, CompressionMode.Decompress))
             {
                 ms = null;
 

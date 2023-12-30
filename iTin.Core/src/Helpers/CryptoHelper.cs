@@ -179,18 +179,16 @@ public static class CryptoHelper
         using (var memoryStream = new MemoryStream(cipherTextBytes))
         {
             // Define cryptographic stream(always use Read mode for encryption).
-            using (var cryptoStream = new CryptoStream(memoryStream, decryptor, CryptoStreamMode.Read))
-            {
-                // Since at this point we don't know what the size of decrypted data will be, allocate the buffer long enough to hold ciphertext, plaintext is never longer than ciphertext.
-                var plainTextBytes = new byte[cipherTextBytes.Length];
+            using var cryptoStream = new CryptoStream(memoryStream, decryptor, CryptoStreamMode.Read);
+            // Since at this point we don't know what the size of decrypted data will be, allocate the buffer long enough to hold ciphertext, plaintext is never longer than ciphertext.
+            var plainTextBytes = new byte[cipherTextBytes.Length];
 
-                // Start decrypting.
-                var decryptedByteCount = cryptoStream.Read(plainTextBytes, 0, plainTextBytes.Length);
+            // Start decrypting.
+            var decryptedByteCount = cryptoStream.Read(plainTextBytes, 0, plainTextBytes.Length);
 
-                // Convert decrypted data into a string. 
-                // Let us assume that the original plaintext string was UTF8-encoded.
-                plainText = Encoding.UTF8.GetString(plainTextBytes, 0, decryptedByteCount);
-            }
+            // Convert decrypted data into a string. 
+            // Let us assume that the original plaintext string was UTF8-encoded.
+            plainText = Encoding.UTF8.GetString(plainTextBytes, 0, decryptedByteCount);
         }
 
         Logger.Instance.Debug($"  > Output: {plainText}");

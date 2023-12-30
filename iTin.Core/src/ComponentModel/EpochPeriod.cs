@@ -156,7 +156,7 @@ public class EpochPeriod : IEquatable<EpochPeriod>, IComparable<EpochPeriod>, IC
     /// </returns>
     public static EpochPeriod FromMoments(DateTime date, TimeSpan fromTime, TimeSpan toTime)
     {
-        DateTime from = new DateTime(
+        var from = new DateTime(
             date.Year,
             date.Month,
             date.Day,
@@ -164,7 +164,7 @@ public class EpochPeriod : IEquatable<EpochPeriod>, IComparable<EpochPeriod>, IC
             fromTime.Minutes,
             fromTime.Seconds);
 
-        DateTime to = new DateTime(
+        var to = new DateTime(
             date.Year,
             date.Month,
             date.Day,
@@ -182,7 +182,7 @@ public class EpochPeriod : IEquatable<EpochPeriod>, IComparable<EpochPeriod>, IC
     /// <returns>
     /// A <see cref="T:iTin.Core.ComponentModel.EpochPeriod"/> for specified <see cref="T:iTin.Core.ComponentModel.Period"/>.
     /// </returns>
-    public static EpochPeriod FromPeriod(Period period) => new EpochPeriod(period.StartDateTime, period.EndDateTime);
+    public static EpochPeriod FromPeriod(Period period) => new(period.StartDateTime, period.EndDateTime);
 
     #endregion
 
@@ -264,13 +264,13 @@ public class EpochPeriod : IEquatable<EpochPeriod>, IComparable<EpochPeriod>, IC
     public Period ToPeriod() => ToPeriod(this);
 
     /// <summary>
-    /// Indicates whether both epoc periods are overlapses.
+    /// Indicates whether both epoc periods are overlaps.
     /// </summary>
     /// <param name="anotherPeriod">Another epoc period.</param>
     /// <returns>
     /// Returns a new <see cref="T:iTin.Core.ComponentModel.Period"/> from current <see cref="T:iTin.Core.ComponentModel.EpochPeriod"/>.
     /// </returns>
-    public Period ToPeriod(EpochPeriod anotherPeriod) => new Period(anotherPeriod.StartDateTime, anotherPeriod.EndDateTime);
+    public Period ToPeriod(EpochPeriod anotherPeriod) => new(anotherPeriod.StartDateTime, anotherPeriod.EndDateTime);
         
     #endregion
 
