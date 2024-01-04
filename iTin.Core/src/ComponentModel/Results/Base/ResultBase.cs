@@ -60,39 +60,15 @@ public class ResultBase<T> : IResult<T>
     #region public properties
 
     /// <inheritdoc />
-    /// <summary>
-    /// Gets or sets a value that contains an error list.
-    /// </summary>
-    /// <value>
-    /// Error list.
-    /// </value>
     public IEnumerable<IResultError> Errors { get; set; }
 
     /// <inheritdoc />
-    /// <summary>
-    /// Gets or sets a value that indicates whether the current operation was executed successfully.
-    /// </summary>
-    /// <value>
-    /// <b>true</b> if current operation was executed successfully; otherwise, <b>false</b>.
-    /// </value>
     public bool Success { get; set; }
 
     /// <inheritdoc />
-    /// <summary>
-    /// Gets or sets a value that contains the result value information.
-    /// </summary>
-    /// <value>
-    /// The result information.
-    /// </value>
     public T Result { get; set; }
 
     /// <inheritdoc />
-    /// <summary>
-    /// Gets or sets a value that contains a warnings messages list.
-    /// </summary>
-    /// <value>
-    /// Warnings list.
-    /// </value>
     public IEnumerable<IResultWarning> Warnings { get; set; }
 
     #endregion
@@ -107,23 +83,21 @@ public class ResultBase<T> : IResult<T>
     /// <returns>
     /// A new invalid <see cref="ResultBase{T}"/> with specified detailed error.
     /// </returns>
-    public static ResultBase<T> CreateErrorResult(string message, string code = "") => 
-        CreateErrorResult(new IResultError[] { new ResultError { Code = code, Message = message } });
+    public static ResultBase<T> CreateErrorResult(string message, string code = "") => CreateErrorResult([new ResultError { Code = code, Message = message }]);
 
     /// <summary>
-    /// Returns a new <see cref="ResultBase{T}"/> with specified detailed errors collection.
+    /// Returns a new <see cref="ResultBase{T}"/> with specified detailed errors' collection.
     /// </summary>
     /// <param name="errors">A errors collection</param>
     /// <returns>
-    /// A new invalid <see cref="ResultBase{T}"/> with specified detailed errors collection.
+    /// A new invalid <see cref="ResultBase{T}"/> with specified detailed errors' collection.
     /// </returns>
-    public static ResultBase<T> CreateErrorResult(IResultError[] errors) =>
-        new()
-        {
-            Result = default,
-            Success = false,
-            Errors = (IResultError[])errors.Clone()
-        };
+    public static ResultBase<T> CreateErrorResult(IResultError[] errors) => new()
+    {
+        Result = default,
+        Success = false,
+        Errors = (IResultError[])errors.Clone()
+    };
 
     /// <summary>
     /// Returns a new result with specified detailed error.
@@ -134,24 +108,22 @@ public class ResultBase<T> : IResult<T>
     /// <returns>
     /// A new valid <see cref="ResultBase{T}"/>.
     /// </returns>
-    public static ResultBase<T> CreateErrorResult(string message, T value, string code = "") => 
-        CreateErrorResult(new IResultError[] { new ResultError { Code = code, Message = message } }, value);
+    public static ResultBase<T> CreateErrorResult(string message, T value, string code = "") => CreateErrorResult([new ResultError { Code = code, Message = message }], value);
 
     /// <summary>
-    /// Returns a new <see cref="ResultBase{T}"/> with specified detailed errors collection.
+    /// Returns a new <see cref="ResultBase{T}"/> with specified detailed errors' collection.
     /// </summary>
     /// <param name="errors">A errors collection</param>
     /// <param name="value">Response value</param>
     /// <returns>
-    /// A new invalid <see cref="ResultBase{T}"/> with specified detailed errors collection.
+    /// A new invalid <see cref="ResultBase{T}"/> with specified detailed errors' collection.
     /// </returns>
-    public static ResultBase<T> CreateErrorResult(IResultError[] errors, T value) =>
-        new()
-        {
-            Result = value,
-            Success = false,
-            Errors = (IResultError[])errors.Clone()
-        };
+    public static ResultBase<T> CreateErrorResult(IResultError[] errors, T value) => new()
+    {
+        Result = value,
+        Success = false,
+        Errors = (IResultError[])errors.Clone()
+    };
 
     /// <summary>
     /// Returns a new success result.
@@ -160,13 +132,12 @@ public class ResultBase<T> : IResult<T>
     /// <returns>
     /// A new valid <see cref="ResultBase{T}"/>.
     /// </returns>
-    public static ResultBase<T> CreateSuccessResult(T value) =>
-        new()
-        {
-            Result = value,
-            Success = true,
-            Errors = new List<IResultError>()
-        };
+    public static ResultBase<T> CreateSuccessResult(T value) => new()
+    {
+        Result = value,
+        Success = true,
+        Errors = new List<IResultError>()
+    };
 
     /// <summary>
     /// Creates a new <see cref="ResultBase{T}"/> instance from known exception.
@@ -175,8 +146,7 @@ public class ResultBase<T> : IResult<T>
     /// <returns>
     /// A new <see cref="ResultBase{T}"/> instance for specified exception.
     /// </returns>
-    public static ResultBase<T> FromException(Exception exception) => 
-        FromException(exception, default);
+    public static ResultBase<T> FromException(Exception exception) => FromException(exception, default);
 
     /// <summary>
     /// Creates a new <see cref="ResultBase{T}"/> instance from known exception.
@@ -186,13 +156,12 @@ public class ResultBase<T> : IResult<T>
     /// <returns>
     /// A new <see cref="ResultBase{T}"/> instance for specified exception.
     /// </returns>
-    public static ResultBase<T> FromException(Exception exception, T value) =>
-        new()
-        {
-            Result = value,
-            Success = false,
-            Errors = new List<IResultError> { new ResultExceptionError { Exception = exception } }
-        };
+    public static ResultBase<T> FromException(Exception exception, T value) => new()
+    {
+        Result = value,
+        Success = false,
+        Errors = new List<IResultError> { new ResultExceptionError { Exception = exception } }
+    };
 
     #endregion
 

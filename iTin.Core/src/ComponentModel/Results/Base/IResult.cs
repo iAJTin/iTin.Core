@@ -12,12 +12,12 @@ public interface IResult
     /// Gets a value that indicates whether the current operation was executed successfully.
     /// </summary>
     /// <value>
-    /// <b>true</b> if current operation was executed successfully; otherwise, <b>false</b>.
+    /// <see langword="true"/> if current operation was executed successfully; otherwise, <see langword="false"/>.
     /// </value>
     bool Success { get; set; }
 
     /// <summary>
-    /// Gets or sets a value that contains a error list.
+    /// Gets or sets a value that contains an error list.
     /// </summary>
     /// <value>
     /// Error list.
